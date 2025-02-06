@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 namespace Rcam4 {
 
-sealed class StatusView : MonoBehaviour
+sealed class UIBinder : MonoBehaviour
 {
     #region Scene object references
 
@@ -42,8 +42,11 @@ sealed class StatusView : MonoBehaviour
     #region MonoBehaviour implementation
 
     void Start()
-      => GetComponent<UIDocument>()
-           .rootVisualElement.Q("status-view").dataSource = this;
+    {
+        var root = GetComponent<UIDocument>().rootVisualElement;
+        root.Q("controller").dataSource = GetComponent<InputHandle>();
+        root.Q("status-view").dataSource = this;
+    }
 
     #endregion
 }
