@@ -22,10 +22,7 @@ public sealed class InputLinker : MonoBehaviour
       => _handle = GetComponent<InputHandle>();
 
     void Update()
-    {
-        _handle.InputState = _decoder.Metadata.InputState;
-        Debug.Log(_handle.Knob0);
-    }
+      => _handle.InputState = _decoder.Metadata.InputState;
 
     #endregion
 }
