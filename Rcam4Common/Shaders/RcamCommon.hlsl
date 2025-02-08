@@ -2,6 +2,7 @@
 #define __RCAM_COMMON_HLSL__
 
 #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Texture.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityInput.hlsl"
 
 static const float RcamDepthHueMargin = 0.01;
 static const float RcamDepthHuePadding = 0.01;
@@ -72,8 +73,7 @@ float RcamDecodeDepth(float3 rgb, float2 range)
 // Linear distance to Z depth
 float RcamDistanceToDepth(float d)
 {
-    float4 cp = mul(UNITY_MATRIX_P, float4(0, 0, -d, 1));
-    return cp.z / cp.w;
+    return (1 / d - _ZBufferParams.w) / _ZBufferParams.z;
 }
 
 // Inverse projection into the world space

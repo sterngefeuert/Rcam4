@@ -4,12 +4,12 @@ namespace Rcam4 {
 
 static class ShaderID
 {
+    public static readonly int ColorMap = Shader.PropertyToID("_ColorMap");
+    public static readonly int DepthMap = Shader.PropertyToID("_DepthMap");
     public static readonly int DepthRange = Shader.PropertyToID("_DepthRange");
-    public static readonly int Gradient = Shader.PropertyToID("_Gradient");
+    public static readonly int InverseProjection = Shader.PropertyToID("_InverseProjection");
+    public static readonly int InverseView = Shader.PropertyToID("_InverseView");
     public static readonly int LutTexture = Shader.PropertyToID("_LutTexture");
-    public static readonly int VFXProx_CellSize = Shader.PropertyToID("VFXProx_CellSize");
-    public static readonly int VFXProx_CountBuffer = Shader.PropertyToID("VFXProx_CountBuffer");
-    public static readonly int VFXProx_PointBuffer = Shader.PropertyToID("VFXProx_PointBuffer");
 }
 
 static class ComputeShaderExtensions
