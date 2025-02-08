@@ -14,8 +14,7 @@ public sealed class FrameDecoder : MonoBehaviour
 
     #region Project asset refnerence
 
-    [SerializeField, HideInInspector] Material _colorDecoder = null;
-    [SerializeField, HideInInspector] Material _depthDecoder = null;
+    [SerializeField, HideInInspector] Shader _shader = null;
 
     #endregion
 
@@ -29,6 +28,7 @@ public sealed class FrameDecoder : MonoBehaviour
 
     #region Private members
 
+    Blitter _blitter;
     (RenderTexture color, RenderTexture depth) _decoded;
     Metadata _metadata = Metadata.InitialData;
 
@@ -37,10 +37,14 @@ public sealed class FrameDecoder : MonoBehaviour
     #region MonoBehaviour implementation
 
     void Start()
-      => _colorDecoder.SetTexture(ShaderID.LutTexture, _lut);
+    {
+        _blitter = new Blitter(_shader);
+        _blitter.Material.SetTexture(ShaderID.LutTexture, _lut);
+    }
 
     void OnDestroy()
     {
+        _blitter.Dispose();
         Destroy(_decoded.color);
         Destroy(_decoded.depth);
     }
@@ -75,21 +79,17 @@ public sealed class FrameDecoder : MonoBehaviour
         if (_decoded.color == null) AllocatePlanes(source);
 
         // Parameters from metadata
-        _depthDecoder.SetVector(ShaderID.DepthRange, _metadata.DepthRange);
+        _blitter.Material.SetVector(ShaderID.DepthRange, _metadata.DepthRange);
 
         // Decoder invocation blit
-        Graphics.Blit(source, _decoded.color, _colorDecoder);
-        Graphics.Blit(source, _decoded.depth, _depthDecoder);
+        _blitter.Run(source, _decoded.color, 0);
+        _blitter.Run(source, _decoded.depth, 1);
     }
 
     void AllocatePlanes(RenderTexture source)
     {
-        var w = source.width / 2;
-        var h = source.height / 2;
-        _decoded.color = new RenderTexture(w, h * 2, 0);
-        _decoded.depth = new RenderTexture(w, h, 0, RenderTextureFormat.RHalf);
-        _decoded.color.wrapMode = TextureWrapMode.Clamp;
-        _decoded.depth.wrapMode = TextureWrapMode.Clamp;
+        _decoded.color = RTUtil.AllocColor(source.width / 2, source.height);
+        _decoded.depth = RTUtil.AllocHalf(source.width / 2, source.height / 2);
     }
 
     #endregion

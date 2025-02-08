@@ -775,8 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ndiReceiver: {fileID: 694569379}
   _lut: {fileID: 8534537815417165676, guid: 244beb38c4aca46d38429ea743939884, type: 3}
-  _colorDecoder: {fileID: -876546973899608171, guid: 74957781651b549b3998e2eb3edf1d05, type: 3}
-  _depthDecoder: {fileID: -876546973899608171, guid: b31475ba2b6b74d8c98632edce07acbc, type: 3}
+  _shader: {fileID: 4800000, guid: 9b68b72d60efe45d7b215eaf74c1b12a, type: 3}
 --- !u!1 &699194017
 GameObject:
   m_ObjectHideFlags: 0

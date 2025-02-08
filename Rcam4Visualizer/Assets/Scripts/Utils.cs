@@ -12,18 +12,40 @@ static class ShaderID
     public static readonly int LutTexture = Shader.PropertyToID("_LutTexture");
 }
 
-static class ComputeShaderExtensions
+// Simple replacement of Graphics.Blit
+class Blitter : System.IDisposable
 {
-    public static void DispatchThreads
-      (this ComputeShader compute, int kernel, int x, int y = 1, int z = 1)
+    Material _material;
+
+    public Material Material => _material;
+
+    public Blitter(Shader shader)
+      => _material = new Material(shader);
+
+    public void Run(Texture source, RenderTexture dest, int pass)
     {
-        uint xc, yc, zc;
-        compute.GetKernelThreadGroupSizes(kernel, out xc, out yc, out zc);
-        x = (x + (int)xc - 1) / (int)xc;
-        y = (y + (int)yc - 1) / (int)yc;
-        z = (z + (int)zc - 1) / (int)zc;
-        compute.Dispatch(kernel, x, y, z);
+        RenderTexture.active = dest;
+        _material.mainTexture = source;
+        _material.SetPass(pass);
+        Graphics.DrawProceduralNow(MeshTopology.Triangles, 3, 1);
     }
+
+    public void Dispose()
+    {
+        if (_material != null) Object.Destroy(_material);
+    }
+}
+
+// Render texture allocation utility
+static class RTUtil
+{
+    public static RenderTexture AllocColor(int width, int height)
+      => new RenderTexture(width, height, 0)
+           { wrapMode = TextureWrapMode.Clamp };
+
+    public static RenderTexture AllocHalf(int width, int height)
+      => new RenderTexture(width, height, 0, RenderTextureFormat.RHalf)
+           { wrapMode = TextureWrapMode.Clamp };
 }
 
 } // namespace Rcam4
