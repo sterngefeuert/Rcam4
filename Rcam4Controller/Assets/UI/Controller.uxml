@@ -1,5 +1,6 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Controller.uss?fileID=7433441132597879392&amp;guid=00140bd20229342af86863d39b5bbcf2&amp;type=3#Controller" />
+    <engine:VisualElement name="monitor" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; -unity-background-image-tint-color: rgb(191, 191, 191);" />
     <engine:VisualElement name="controller" data-source-type="Rcam4.InputHandle, Rcam4.Common.Runtime" style="position: absolute; top: 40px; bottom: 40px; left: 100px;">
         <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
             <VJUITK.VJKnob label="Knob 1" high-value="1">

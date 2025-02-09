@@ -12,7 +12,6 @@ public sealed class FrameEncoder : MonoBehaviour
     [SerializeField] ARCameraManager _cameraManager = null;
     [SerializeField] AROcclusionManager _occlusionManager = null;
     [SerializeField] NdiSender _ndiSender = null;
-    [SerializeField] Monitor _monitor = null;
     [Space]
     [SerializeField] float _minDepth = 0.2f;
     [SerializeField] float _maxDepth = 3.2f;
@@ -28,19 +27,25 @@ public sealed class FrameEncoder : MonoBehaviour
 
     #endregion
 
-    #region Private members
+    #region Public accessors
 
-    Camera _camera;
-    Blitter _blitter;
-    Matrix4x4 _projMatrix;
-    RenderTexture _encoded;
+    public RenderTexture Output => _output;
 
-    Metadata MakeMetadata()
+    public Metadata Metadata
       => new Metadata(cameraPosition: _camera.transform.position,
                       cameraRotation: _camera.transform.rotation,
                       projectionMatrix: _projMatrix,
                       depthRange: new Vector2(_minDepth, _maxDepth),
                       inputState: _input.InputState);
+
+    #endregion
+
+    #region Private members
+
+    Camera _camera;
+    Blitter _blitter;
+    Matrix4x4 _projMatrix = Matrix4x4.identity;
+    RenderTexture _encoded;
 
     #endregion
 
@@ -126,9 +131,7 @@ public sealed class FrameEncoder : MonoBehaviour
     void Update()
     {
         // Metadata update
-        var meta = MakeMetadata();
-        _ndiSender.metadata = meta.Serialize();
-        _monitor.Metadata = meta;
+        _ndiSender.metadata = Metadata.Serialize();
 
         // Parameter update
         var range = new Vector2(_minDepth, _maxDepth);
