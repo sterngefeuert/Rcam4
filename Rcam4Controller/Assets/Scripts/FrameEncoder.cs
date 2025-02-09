@@ -24,14 +24,14 @@ public sealed class FrameEncoder : MonoBehaviour
 
     #region Project asset reference
 
-    [SerializeField, HideInInspector] Material _encoder = null;
+    [SerializeField, HideInInspector] Shader _shader = null;
 
     #endregion
 
     #region Private members
 
     Camera _camera;
-
+    Blitter _blitter;
     Matrix4x4 _projMatrix;
     RenderTexture _encoded;
 
@@ -55,7 +55,7 @@ public sealed class FrameEncoder : MonoBehaviour
         {
             var id = args.propertyNameIds[i];
             if (id == ShaderID.TextureY || id == ShaderID.TextureCbCr)
-                _encoder.SetTexture(id, args.textures[i]);
+                _blitter.Material.SetTexture(id, args.textures[i]);
         }
 
         // Projection matrix
@@ -81,7 +81,7 @@ public sealed class FrameEncoder : MonoBehaviour
             if (id == ShaderID.HumanStencil ||
                 id == ShaderID.EnvironmentDepth ||
                 id == ShaderID.EnvironmentDepthConfidence)
-                _encoder.SetTexture(id, args.textures[i]);
+                _blitter.Material.SetTexture(id, args.textures[i]);
         }
     }
 
@@ -94,6 +94,9 @@ public sealed class FrameEncoder : MonoBehaviour
         // Component reference
         _camera = _cameraManager.GetComponent<Camera>();
 
+        // Blitter object
+        _blitter = new Blitter(_shader);
+
         // Muxer buffer allocation
         _encoded = new RenderTexture(_output.descriptor);
         _encoded.wrapMode = TextureWrapMode.Clamp;
@@ -101,7 +104,10 @@ public sealed class FrameEncoder : MonoBehaviour
     }
 
     void OnDestroy()
-      => Destroy(_encoded);
+    {
+        _blitter.Dispose();
+        Destroy(_encoded);
+    }
 
     void OnEnable()
     {
@@ -126,13 +132,13 @@ public sealed class FrameEncoder : MonoBehaviour
 
         // Parameter update
         var range = new Vector2(_minDepth, _maxDepth);
-        _encoder.SetVector(ShaderID.DepthRange, range);
+        _blitter.Material.SetVector(ShaderID.DepthRange, range);
 
         // Delayed output
         Graphics.CopyTexture(_encoded, _output);
 
         // Multiplexer invocation
-        Graphics.Blit(null, _encoded, _encoder, 0);
+        _blitter.Run(null, _encoded, 0);
     }
 
     #endregion
