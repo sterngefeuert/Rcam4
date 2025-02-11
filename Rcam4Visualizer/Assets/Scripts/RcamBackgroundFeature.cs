@@ -42,11 +42,11 @@ sealed class RcamBackgroundPass : ScriptableRenderPass
           (resource.activeDepthTexture, AccessFlags.Write);
 
         // Render function registration
-        builder.SetRenderFunc<PassData>
-          ((PassData data, RasterGraphContext context)
-             => CoreUtils.DrawFullScreen
-                  (context.cmd, data.Material, data.Driver.Properties));
+        builder.SetRenderFunc<PassData>((data, ctx) => ExecutePass(data, ctx));
     }
+
+    static void ExecutePass(PassData data, RasterGraphContext ctx)
+      => CoreUtils.DrawFullScreen(ctx.cmd, data.Material, data.Driver.Properties);
 }
 
 public sealed class RcamBackgroundFeature : ScriptableRendererFeature

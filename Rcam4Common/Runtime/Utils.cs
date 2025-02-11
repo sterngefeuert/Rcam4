@@ -5,6 +5,7 @@ namespace Rcam4 {
 // Shader property IDs
 public static class ShaderID
 {
+    public static readonly int AlphaTexture = Shader.PropertyToID("_AlphaTexture");
     public static readonly int ColorMap = Shader.PropertyToID("_ColorMap");
     public static readonly int DepthMap = Shader.PropertyToID("_DepthMap");
     public static readonly int DepthRange = Shader.PropertyToID("_DepthRange");
@@ -14,6 +15,7 @@ public static class ShaderID
     public static readonly int InverseProjection = Shader.PropertyToID("_InverseProjection");
     public static readonly int InverseView = Shader.PropertyToID("_InverseView");
     public static readonly int LutTexture = Shader.PropertyToID("_LutTexture");
+    public static readonly int SourceTexture = Shader.PropertyToID("_SourceTexture");
     public static readonly int TextureCbCr = Shader.PropertyToID("_textureCbCr");
     public static readonly int TextureY = Shader.PropertyToID("_textureY");
 }
