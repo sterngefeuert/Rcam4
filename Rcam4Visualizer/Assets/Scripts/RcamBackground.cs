@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Rcam4 {
 
@@ -13,45 +12,30 @@ public sealed class RcamBackground : MonoBehaviour
 
     #endregion
 
-    #region Project asset references
+    #region Public properties
 
-    [SerializeField, HideInInspector] Shader _shader = null;
-
-    #endregion
-
-    #region Private members
-
-    Material _material;
+    public bool IsReady => Properties != null;
+    public MaterialPropertyBlock Properties { get; private set; }
 
     #endregion
 
     #region MonoBehaviour implementation
 
-    void Start()
-      => _material = new Material(_shader);
-
-    void OnDestroy()
-      => CoreUtils.Destroy(_material);
-
-    #endregion
-
-    #region Public methods
-
-    public bool IsReady
-      => _material != null &&
-         _decoder.ColorTexture != null &&
-         _decoder.DepthTexture != null;
-
-    public void PushDrawCommand
-      (UnityEngine.Rendering.RenderGraphModule.RasterGraphContext context)
+    void LateUpdate()
     {
+        if (_decoder.ColorTexture == null) return;
+        if (_decoder.DepthTexture == null) return;
+
+        if (Properties == null) Properties = new MaterialPropertyBlock();
+
         var inv_proj = CameraUtil.GetInverseProjection(_decoder.Metadata);
         var inv_view = CameraUtil.GetInverseView(_decoder.Metadata);
-        _material.SetVector(ShaderID.InverseProjection, inv_proj);
-        _material.SetMatrix(ShaderID.InverseView, inv_view);
-        _material.SetTexture(ShaderID.ColorMap, _decoder.ColorTexture);
-        _material.SetTexture(ShaderID.DepthMap, _decoder.DepthTexture);
-        CoreUtils.DrawFullScreen(context.cmd, _material);
+
+        Properties.SetVector(ShaderID.InverseProjection, inv_proj);
+        Properties.SetMatrix(ShaderID.InverseView, inv_view);
+
+        Properties.SetTexture(ShaderID.ColorMap, _decoder.ColorTexture);
+        Properties.SetTexture(ShaderID.DepthMap, _decoder.DepthTexture);
     }
 
     #endregion

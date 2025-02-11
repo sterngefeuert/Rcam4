@@ -33,8 +33,11 @@ void Fragment(float4 position : SV_Position,
     float4 c = tex2D(_ColorMap, uv);
     float d = tex2D(_DepthMap, uv).x;
 
+    // Human stencil
+    float a = c.a > 0.51;
+
     // Output
-    outColor = c;
+    outColor = float4(c.rgb, a);
     outDepth = RcamDistanceToDepth(d);
 }
 
