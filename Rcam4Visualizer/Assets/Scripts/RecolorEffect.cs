@@ -3,8 +3,8 @@ using UnityEngine;
 namespace Rcam4 {
 
 [RequireComponent(typeof(Camera))]
-[AddComponentMenu("Rcam/Recolor")]
-public sealed class Recolor : MonoBehaviour
+[AddComponentMenu("Rcam/Recolor Effect")]
+public sealed class RecolorEffect : MonoBehaviour
 {
     #region Public properties
 

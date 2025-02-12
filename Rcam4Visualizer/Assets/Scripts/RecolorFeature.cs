@@ -10,13 +10,19 @@ using UnityEngine.Experimental.Rendering;
 
 namespace Rcam4 {
 
-sealed class CapturePass : ScriptableRenderPass
+sealed class RecolorContextData : ContextItem
+{
+    public TextureHandle AlphaBuffer { get; set; }
+
+    public override void Reset()
+      => AlphaBuffer = TextureHandle.nullHandle;
+}
+
+sealed class RecolorCapturePass : ScriptableRenderPass
 {
     Material _material;
 
-    public TextureHandle Buffer { get; set; }
-
-    public CapturePass(Material material)
+    public RecolorCapturePass(Material material)
       => _material = material;
 
     public override void RecordRenderGraph
@@ -33,30 +39,33 @@ sealed class CapturePass : ScriptableRenderPass
         desc.colorFormat = GraphicsFormat.R8_UNorm;
         desc.clearBuffer = false;
         desc.depthBufferBits = 0;
-        Buffer = graph.CreateTexture(desc);
+        var buffer = graph.CreateTexture(desc);
+
+        // Custom context data for transferring the texture
+        var contextData = context.Create<RecolorContextData>();
+        contextData.AlphaBuffer = buffer;
 
         // Blit
         var param = new RenderGraphUtils.
-          BlitMaterialParameters(source, Buffer, _material, 0);
+          BlitMaterialParameters(source, buffer, _material, 0);
         graph.AddBlitPass(param, passName: "Recolor (capture alpha)");
     }
 }
 
-sealed class RecolorPass : ScriptableRenderPass
+sealed class RecolorEffectPass : ScriptableRenderPass
 {
     class PassData
     {
         public Material Material;
-        public Recolor Driver;
+        public RecolorEffect Driver;
         public TextureHandle Source;
-        public TextureHandle Buffer;
+        public TextureHandle Alpha;
     }
 
     Material _material;
-    CapturePass _capture;
 
-    public RecolorPass(Material material, CapturePass capture)
-      => (_material, _capture) = (material, capture);
+    public RecolorEffectPass(Material material)
+      => _material = material;
 
     public override void RecordRenderGraph
       (RenderGraph graph, ContextContainer context)
@@ -67,8 +76,11 @@ sealed class RecolorPass : ScriptableRenderPass
 
         // Driver component retrieval
         var camera = context.Get<UniversalCameraData>().camera;
-        var driver = camera.GetComponent<Recolor>();
+        var driver = camera.GetComponent<RecolorEffect>();
         if (driver == null || !driver.enabled || !driver.IsReady) return;
+
+        // Custom context data retrieval
+        var contextData = context.Get<RecolorContextData>();
 
         // Destination texture allocation
         var source = resource.activeColorTexture;
@@ -86,11 +98,11 @@ sealed class RecolorPass : ScriptableRenderPass
         data.Material = _material;
         data.Driver = driver;
         data.Source = source;
-        data.Buffer = _capture.Buffer;
+        data.Alpha = contextData.AlphaBuffer;
 
         // Texture registration
-        builder.UseTexture(source);
-        builder.UseTexture(_capture.Buffer);
+        builder.UseTexture(data.Source);
+        builder.UseTexture(data.Alpha);
 
         // Color attachment
         builder.SetRenderAttachment(dest, 0);
@@ -105,7 +117,7 @@ sealed class RecolorPass : ScriptableRenderPass
     static void ExecutePass(PassData data, RasterGraphContext ctx)
     {
         data.Material.SetTexture(ShaderID.SourceTexture, data.Source);
-        data.Material.SetTexture(ShaderID.AlphaTexture, data.Buffer);
+        data.Material.SetTexture(ShaderID.AlphaTexture, data.Alpha);
         CoreUtils.DrawFullScreen(ctx.cmd, data.Material, data.Driver.Properties, 1);
     }
 }
@@ -115,16 +127,16 @@ public sealed class RecolorFeature : ScriptableRendererFeature
     [SerializeField, HideInInspector] Shader _shader = null;
 
     Material _material;
-    CapturePass _capture;
-    RecolorPass _recolor;
+    RecolorCapturePass _capturePass;
+    RecolorEffectPass _effectPass;
 
     public override void Create()
     {
         _material = CoreUtils.CreateEngineMaterial(_shader);
-        _capture = new CapturePass(_material);
-        _recolor = new RecolorPass(_material, _capture);
-        _capture.renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
-        _recolor.renderPassEvent = RenderPassEvent.AfterRenderingPostProcessing;
+        _capturePass = new RecolorCapturePass(_material);
+        _effectPass = new RecolorEffectPass(_material);
+        _capturePass.renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+        _effectPass.renderPassEvent = RenderPassEvent.AfterRenderingPostProcessing;
     }
 
     protected override void Dispose(bool disposing)
@@ -134,8 +146,8 @@ public sealed class RecolorFeature : ScriptableRendererFeature
       (ScriptableRenderer renderer, ref RenderingData data)
     {
         if (data.cameraData.cameraType != CameraType.Game) return;
-        renderer.EnqueuePass(_capture);
-        renderer.EnqueuePass(_recolor);
+        renderer.EnqueuePass(_capturePass);
+        renderer.EnqueuePass(_effectPass);
     }
 }
 
