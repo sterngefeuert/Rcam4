@@ -73,7 +73,9 @@ public sealed class FrameEncoder : MonoBehaviour
             var texAspect = (float)tex1.width / tex1.height;
 
             // Aspect ratio compensation (camera vs. texture)
-            _projMatrix[1, 1] *= texAspect / _camera.aspect;
+            var s = texAspect / _camera.aspect;
+            _projMatrix[1, 1] *= s;
+            _projMatrix[1, 2] *= s;
         }
     }
 
