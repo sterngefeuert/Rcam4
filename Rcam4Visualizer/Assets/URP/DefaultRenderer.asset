@@ -27,7 +27,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: 8092590290177331532}
   - {fileID: 3497053529642279373}
-  m_RendererFeatureMap: 4c91cb16fea74e70cda1da32a8078830
+  - {fileID: 2927577306469215708}
+  m_RendererFeatureMap: 4c91cb16fea74e70cda1da32a8078830dcad979c0cd8a028
   m_UseNativeRenderPass: 1
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   m_AssetVersion: 2
@@ -52,6 +53,20 @@ MonoBehaviour:
   m_DepthTextureFormat: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &2927577306469215708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb974c4ec13434429a706285f202877b, type: 3}
+  m_Name: FeedbackFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  _shader: {fileID: 4800000, guid: 254f19bceb1da4b7d9c8edb95bd9f8f9, type: 3}
 --- !u!114 &3497053529642279373
 MonoBehaviour:
   m_ObjectHideFlags: 0

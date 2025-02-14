@@ -30,7 +30,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.12.0",
+      "version": "1.13.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -112,7 +112,7 @@
       }
     },
     "com.unity.test-framework": {
-      "version": "1.4.5",
+      "version": "1.4.6",
       "depth": 3,
       "source": "registry",
       "dependencies": {
@@ -142,13 +142,20 @@
       }
     },
     "com.unity.visualeffectgraph": {
-      "version": "17.0.0",
+      "version": "17.0.3",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
         "com.unity.shadergraph": "17.0.3",
         "com.unity.render-pipelines.core": "17.0.3"
       }
+    },
+    "jp.keijiro.kino.feedback.universal": {
+      "version": "1.0.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
     },
     "jp.keijiro.klak.math": {
       "version": "2.1.0",
