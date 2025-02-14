@@ -49,6 +49,7 @@ public sealed class CameraLinker : MonoBehaviour
         _camera.fieldOfView = Mathf.Rad2Deg * Mathf.Atan(1 / h) * 2;
 
         // Overwrite the projection matrix.
+        proj[1, 1] = _camera.aspect * proj[0, 0];
         _camera.projectionMatrix = proj;
     }
 

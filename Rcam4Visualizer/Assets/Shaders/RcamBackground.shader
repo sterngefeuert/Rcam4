@@ -25,8 +25,9 @@ void Fragment(float4 position : SV_Position,
               out float outDepth : SV_Depth)
 {
     // Aspect ratio fix
+    float inv_aspect = _InverseProjection.y / _InverseProjection.x;
     float2 uv = texCoord * 2 - 1;
-    uv = (uv * _InverseProjection.xy) + _InverseProjection.zw;
+    uv = (uv * float2(1, inv_aspect)) + _InverseProjection.zw;
     uv = (uv + 1) / 2;
 
     // Color/depth samples
