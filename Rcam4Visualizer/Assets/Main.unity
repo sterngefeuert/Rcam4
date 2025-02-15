@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &83101591
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -184,7 +184,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83101590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1841,10 +1841,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BackFill>k__BackingField: 1
   <FrontFill>k__BackingField: 1
-  <BaseHue>k__BackingField: 0.5
+  <BaseHue>k__BackingField: 0.6
   <ContourColor>k__BackingField: {r: 1, g: 1, b: 1, a: 0}
   <ContourSense>k__BackingField: 0.5
-  <Dithering>k__BackingField: 0.2
+  <Dithering>k__BackingField: 0.1
 --- !u!114 &1107918128
 MonoBehaviour:
   m_ObjectHideFlags: 0

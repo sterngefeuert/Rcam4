@@ -36,16 +36,14 @@ public sealed class RecolorEffect : MonoBehaviour
 
     #endregion
 
-    #region Private members
+    #region Coloring algorithm
 
     MaterialPropertyBlock _props;
 
-    Vector4 GetColor(float hoffs, float y, float a)
+    Vector4 GetColor(float hoffs, float s, float v)
     {
         var h = (BaseHue + hoffs + 1) % 1;
-        var c = Color.HSVToRGB(h, Mathf.Min(1, 2 - y), Mathf.Min(1, y));
-        c.a = a;
-        return (Vector4)(c.linear);
+        return Color.HSVToRGB(h, s, v).linear;
     }
 
     Matrix4x4 GetColorMatrix
@@ -55,32 +53,33 @@ public sealed class RecolorEffect : MonoBehaviour
         return new Matrix4x4(c1, c2, c3, c4).transpose;
     }
 
+    Matrix4x4 Palette1
+      => GetColorMatrix(GetColor(0.2f, 0.7f, 0.0f),
+                        GetColor(0.2f, 0.7f, 0.7f),
+                        GetColor(0.3f, 0.3f, 0.9f),
+                        GetColor(0.3f, 0.1f, 1.0f),
+                        0.1f, 0.5f, 0.95f);
+
+    Matrix4x4 Palette2
+      => GetColorMatrix(GetColor( 0.0f, 1.0f, 0.1f),
+                        GetColor( 0.4f, 1.0f, 0.7f),
+                        GetColor(-0.1f, 0.5f, 0.9f),
+                        GetColor(-0.2f, 0.1f, 1.0f),
+                        0.1f, 0.5f, 0.95f);
+
+    #endregion
+
+    #region Private members
+
     MaterialPropertyBlock UpdateMaterialProperties()
     {
         if (_props == null) _props = new MaterialPropertyBlock();
-
         var thresh = (1 - ContourSense) * 0.05f;
-
-        var palette1 = GetColorMatrix
-          (Color.black,
-           GetColor(0.25f - 0.1f, 0.4f, 0.1f),
-           GetColor(0.25f + 0.0f, 1.0f, 0.5f),
-           GetColor(0.25f + 0.1f, 1.4f, 0.95f),
-           0.1f, 0.5f, 0.95f);
-
-        var palette2 = GetColorMatrix
-          (GetColor(-0.1f, 0.1f, 0.00f),
-           GetColor( 0.0f, 0.4f, 0.10f),
-           GetColor( 0.1f, 1.4f, 0.50f),
-           Color.white,
-           0.1f, 0.5f, 0.95f);
-
-        _props.SetVector("_ContourThresh", new Vector2(thresh / 2, thresh));
         _props.SetFloat("_Dithering", Dithering);
-        _props.SetMatrix("_BgColors", palette1);
-        _props.SetMatrix("_FgColors", palette2);
+        _props.SetMatrix("_BgColors", Palette1);
+        _props.SetMatrix("_FgColors", Palette2);
+        _props.SetVector("_ContourThresh", new Vector2(thresh / 2, thresh));
         _props.SetColor("_ContourColor", ContourColor);
-
         return _props;
     }
 
