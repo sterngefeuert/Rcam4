@@ -32,6 +32,11 @@ sealed class RecolorCapturePass : ScriptableRenderPass
         var resource = context.Get<UniversalResourceData>();
         if (resource.isActiveTargetBackBuffer) return;
 
+        // Driver component retrieval
+        var camera = context.Get<UniversalCameraData>().camera;
+        var driver = camera.GetComponent<RecolorEffect>();
+        if (driver == null || !driver.enabled || !driver.IsActive) return;
+
         // Destination texture allocation
         var source = resource.activeColorTexture;
         var desc = graph.GetTextureDesc(source);
@@ -77,7 +82,7 @@ sealed class RecolorEffectPass : ScriptableRenderPass
         // Driver component retrieval
         var camera = context.Get<UniversalCameraData>().camera;
         var driver = camera.GetComponent<RecolorEffect>();
-        if (driver == null || !driver.enabled || !driver.IsReady) return;
+        if (driver == null || !driver.enabled || !driver.IsActive) return;
 
         // Custom context data retrieval
         var contextData = context.Get<RecolorContextData>();

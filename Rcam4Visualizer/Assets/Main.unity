@@ -593,7 +593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &356116626
 Transform:
   m_ObjectHideFlags: 0
@@ -1839,6 +1839,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f1a594d8bb04ddcba3f1106750bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <BackFill>k__BackingField: 1
+  <FrontFill>k__BackingField: 1
+  <BaseHue>k__BackingField: 0.5
+  <ContourColor>k__BackingField: {r: 1, g: 1, b: 1, a: 0}
+  <ContourSense>k__BackingField: 0.5
+  <Dithering>k__BackingField: 0.2
 --- !u!114 &1107918128
 MonoBehaviour:
   m_ObjectHideFlags: 0
