@@ -9,6 +9,7 @@ HLSLINCLUDE
 TEXTURE2D(_SourceTexture);
 TEXTURE2D(_AlphaTexture);
 float4x4 _BgColors, _FgColors;
+float _BackFill, _FrontFill;
 float _Dithering;
 
 // Bayer matrix for dithering
@@ -53,8 +54,8 @@ float4 FragRecolor(float4 position : SV_Position) : SV_Target0
     l += (GetDither(position.xy) - 0.5) * _Dithering;
 
     // Composition
-    float3 bg = ApplyPalette(_BgColors, l);
-    float3 fg = ApplyPalette(_FgColors, l);
+    float3 bg = lerp(c, ApplyPalette(_BgColors, l), _BackFill);
+    float3 fg = lerp(c, ApplyPalette(_FgColors, l), _FrontFill);
     return float4(lerp(bg, fg, a), 1);
 }
 

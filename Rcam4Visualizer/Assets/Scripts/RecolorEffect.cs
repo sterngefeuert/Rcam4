@@ -71,6 +71,8 @@ public sealed class RecolorEffect : MonoBehaviour
         if (_props == null) _props = new MaterialPropertyBlock();
         _props.SetMatrix("_BgColors", Palette1);
         _props.SetMatrix("_FgColors", Palette2);
+        _props.SetFloat("_BackFill", BackFill ? 1 : 0);
+        _props.SetFloat("_FrontFill", FrontFill ? 1 : 0);
         _props.SetFloat("_Dithering", Dithering);
         return _props;
     }
