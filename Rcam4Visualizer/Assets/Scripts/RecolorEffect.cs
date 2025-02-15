@@ -17,12 +17,6 @@ public sealed class RecolorEffect : MonoBehaviour
     [field:SerializeField, Range(0, 1)]
     public float BaseHue { get; set; } = 0.5f;
 
-    [field:SerializeField]
-    public Color ContourColor { get; set; } = Color.white;
-
-    [field:SerializeField, Range(0, 1)]
-    public float ContourSense { get; set; } = 0.5f;
-
     [field:SerializeField, Range(0, 1)]
     public float Dithering { get; set; } = 0.3f;
 
@@ -47,7 +41,8 @@ public sealed class RecolorEffect : MonoBehaviour
     }
 
     Matrix4x4 GetColorMatrix
-      (Color c1, Color c2, Color c3, Color c4, float th1, float th2, float th3)
+      (Color c1, Color c2, Color c3, Color c4,
+       float th1, float th2, float th3)
     {
         c2.a = th1; c3.a = th2; c4.a = th3;
         return new Matrix4x4(c1, c2, c3, c4).transpose;
@@ -74,12 +69,9 @@ public sealed class RecolorEffect : MonoBehaviour
     MaterialPropertyBlock UpdateMaterialProperties()
     {
         if (_props == null) _props = new MaterialPropertyBlock();
-        var thresh = (1 - ContourSense) * 0.05f;
-        _props.SetFloat("_Dithering", Dithering);
         _props.SetMatrix("_BgColors", Palette1);
         _props.SetMatrix("_FgColors", Palette2);
-        _props.SetVector("_ContourThresh", new Vector2(thresh / 2, thresh));
-        _props.SetColor("_ContourColor", ContourColor);
+        _props.SetFloat("_Dithering", Dithering);
         return _props;
     }
 

@@ -173,8 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 83101591}
+  m_Bindings: []
   m_VisualEffect: {fileID: 83101594}
 --- !u!73398921 &83101593
 VFXRenderer:
@@ -1842,8 +1841,6 @@ MonoBehaviour:
   <BackFill>k__BackingField: 1
   <FrontFill>k__BackingField: 1
   <BaseHue>k__BackingField: 0.6
-  <ContourColor>k__BackingField: {r: 1, g: 1, b: 1, a: 0}
-  <ContourSense>k__BackingField: 0.5
   <Dithering>k__BackingField: 0.1
 --- !u!114 &1107918128
 MonoBehaviour:
