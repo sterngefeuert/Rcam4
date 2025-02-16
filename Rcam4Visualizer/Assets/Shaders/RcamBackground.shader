@@ -38,12 +38,12 @@ void Fragment(float4 position : SV_Position,
     // Human stencil
     float a = c.a > 0.51;
 
-    // Background separation
-    float3 bg = c.rgb * (1 - a) * _BackFill;
-    float3 fg = c.rgb * a  * _FrontFill;
+    // Cutout
+    if (!((_BackFill > 0.5 && a < 0.5) ||
+          (_FrontFill > 0.5 && a > 0.5))) discard;
 
     // Output
-    outColor = float4(bg + fg, a);
+    outColor = float4(c.rgb, a);
     outDepth = RcamDistanceToDepth(d);
 }
 

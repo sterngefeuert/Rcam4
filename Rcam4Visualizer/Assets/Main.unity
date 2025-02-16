@@ -1582,6 +1582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a11a6edcd0c45a58e60ea4f897f602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <BackFill>k__BackingField: 0
+  <FrontFill>k__BackingField: 1
   _decoder: {fileID: 694569381}
 --- !u!114 &1107918127
 MonoBehaviour:
@@ -1606,17 +1608,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107918120}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1722a1d0f69cc40f3a526d900f52ce04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Tint>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
-  <HueShift>k__BackingField: 0
-  <Offset>k__BackingField: {x: 0, y: 0}
-  <Rotation>k__BackingField: 0
-  <Scale>k__BackingField: 1.1
-  <SampleMode>k__BackingField: 0
+  <Tint>k__BackingField: {r: 0.981, g: 0.98, b: 1, a: 1}
+  <HueShift>k__BackingField: 0.005
+  <Offset>k__BackingField: {x: 0, y: 0.003}
+  <Rotation>k__BackingField: -1
+  <Scale>k__BackingField: 1.03
+  <SampleMode>k__BackingField: 1
 --- !u!114 &1107918129
 MonoBehaviour:
   m_ObjectHideFlags: 0
