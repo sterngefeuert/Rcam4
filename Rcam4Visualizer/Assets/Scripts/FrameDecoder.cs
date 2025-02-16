@@ -37,10 +37,7 @@ public sealed class FrameDecoder : MonoBehaviour
     #region MonoBehaviour implementation
 
     void Start()
-    {
-        _blitter = new Blitter(_shader);
-        _blitter.Material.SetTexture(ShaderID.LutTexture, _lut);
-    }
+      => _blitter = new Blitter(_shader);
 
     void OnDestroy()
     {
@@ -78,7 +75,8 @@ public sealed class FrameDecoder : MonoBehaviour
         // Lazy initialization
         if (_decoded.color == null) AllocatePlanes(source);
 
-        // Parameters from metadata
+        // Shader properties
+        _blitter.Material.SetTexture(ShaderID.LutTexture, _lut);
         _blitter.Material.SetVector(ShaderID.DepthRange, _metadata.DepthRange);
 
         // Decoder invocation blit
