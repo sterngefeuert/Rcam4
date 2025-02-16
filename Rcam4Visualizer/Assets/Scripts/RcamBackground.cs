@@ -6,6 +6,16 @@ namespace Rcam4 {
 [AddComponentMenu("Rcam/Rcam Background")]
 public sealed class RcamBackground : MonoBehaviour
 {
+    #region Editable properties
+
+    [field:SerializeField]
+    public bool BackFill { get; set; } = true;
+
+    [field:SerializeField]
+    public bool FrontFill { get; set; } = true;
+
+    #endregion
+
     #region Scene object references
 
     [SerializeField] FrameDecoder _decoder = null;
@@ -14,28 +24,34 @@ public sealed class RcamBackground : MonoBehaviour
 
     #region Public properties
 
-    public bool IsReady => Properties != null;
-    public MaterialPropertyBlock Properties { get; private set; }
+    public bool IsActive => BackFill || FrontFill;
+
+    public MaterialPropertyBlock Properties => UpdateMaterialProperties();
 
     #endregion
 
-    #region MonoBehaviour implementation
+    #region Private members
 
-    void LateUpdate()
+    MaterialPropertyBlock _props;
+
+    MaterialPropertyBlock UpdateMaterialProperties()
     {
-        if (_decoder.ColorTexture == null) return;
-        if (_decoder.DepthTexture == null) return;
-
-        if (Properties == null) Properties = new MaterialPropertyBlock();
+        if (_props == null) _props = new MaterialPropertyBlock();
+        if (_decoder == null || _decoder.ColorTexture == null) return _props;
 
         var inv_proj = CameraUtil.GetInverseProjection(_decoder.Metadata);
         var inv_view = CameraUtil.GetInverseView(_decoder.Metadata);
 
-        Properties.SetVector(ShaderID.InverseProjection, inv_proj);
-        Properties.SetMatrix(ShaderID.InverseView, inv_view);
+        _props.SetVector(ShaderID.InverseProjection, inv_proj);
+        _props.SetMatrix(ShaderID.InverseView, inv_view);
 
-        Properties.SetTexture(ShaderID.ColorMap, _decoder.ColorTexture);
-        Properties.SetTexture(ShaderID.DepthMap, _decoder.DepthTexture);
+        _props.SetFloat("_BackFill", BackFill ? 1 : 0);
+        _props.SetFloat("_FrontFill", FrontFill ? 1 : 0);
+
+        _props.SetTexture(ShaderID.ColorMap, _decoder.ColorTexture);
+        _props.SetTexture(ShaderID.DepthMap, _decoder.DepthTexture);
+
+        return _props;
     }
 
     #endregion

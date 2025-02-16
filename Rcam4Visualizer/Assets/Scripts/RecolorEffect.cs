@@ -22,7 +22,7 @@ public sealed class RecolorEffect : MonoBehaviour
 
     #endregion
 
-    #region Public properties and methods
+    #region Public properties
 
     public bool IsActive => BackFill || FrontFill;
 
@@ -31,8 +31,6 @@ public sealed class RecolorEffect : MonoBehaviour
     #endregion
 
     #region Coloring algorithm
-
-    MaterialPropertyBlock _props;
 
     Vector4 GetColor(float hoffs, float s, float v)
     {
@@ -65,6 +63,8 @@ public sealed class RecolorEffect : MonoBehaviour
     #endregion
 
     #region Private members
+
+    MaterialPropertyBlock _props;
 
     MaterialPropertyBlock UpdateMaterialProperties()
     {

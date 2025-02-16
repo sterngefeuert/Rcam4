@@ -25,7 +25,7 @@ sealed class RcamBackgroundPass : ScriptableRenderPass
         // Driver component retrieval
         var camera = context.Get<UniversalCameraData>().camera;
         var driver = camera.GetComponent<RcamBackground>();
-        if (driver == null || !driver.enabled || !driver.IsReady) return;
+        if (driver == null || !driver.enabled || !driver.IsActive) return;
 
         // Render pass building
         using var builder = graph.

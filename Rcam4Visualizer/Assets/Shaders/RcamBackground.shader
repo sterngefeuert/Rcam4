@@ -10,6 +10,7 @@ sampler2D _ColorMap;
 sampler2D _DepthMap;
 float4 _InverseProjection;
 float4x4 _InverseView;
+float _BackFill, _FrontFill;
 
 void Vertex(uint vertexID : VERTEXID_SEMANTIC,
             out float4 outPosition : SV_Position,
@@ -37,8 +38,12 @@ void Fragment(float4 position : SV_Position,
     // Human stencil
     float a = c.a > 0.51;
 
+    // Background separation
+    float3 bg = c.rgb * (1 - a) * _BackFill;
+    float3 fg = c.rgb * a  * _FrontFill;
+
     // Output
-    outColor = float4(c.rgb, a);
+    outColor = float4(bg + fg, a);
     outDepth = RcamDistanceToDepth(d);
 }
 
