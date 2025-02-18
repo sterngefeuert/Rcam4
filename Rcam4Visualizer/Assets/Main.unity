@@ -1960,6 +1960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BackFill>k__BackingField: 1
   <FrontFill>k__BackingField: 1
+  <Opacity>k__BackingField: 1
   _decoder: {fileID: 694569381}
 --- !u!114 &1107918127
 MonoBehaviour:
@@ -2882,14 +2883,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Fov3rd>k__BackingField: 40
   <TimeTo1st>k__BackingField: 0.5
-  <TimeTo3rd>k__BackingField: 2
+  <TimeTo3rd>k__BackingField: 1
   <PlaneScale1st>k__BackingField: 0.59
   <PlaneScale3rd>k__BackingField: 0.95
   _camera: {fileID: 1107918123}
   _decoder: {fileID: 694569381}
   _follower: {fileID: 1107918125}
   _target1st: {fileID: 1874686797}
-  _target3rd: {fileID: 214500077}
   _pointClouds:
   - {fileID: 83101594}
   - {fileID: 352379091}

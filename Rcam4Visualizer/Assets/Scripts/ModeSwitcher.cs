@@ -44,6 +44,7 @@ public sealed class ModeSwitcher : MonoBehaviour
         {
             // 3rd person view mode -> 1st person view mode
             _follower.enabled = false;
+            _background.enabled = true;
 
             var tweenFrom = _camera.transform.position;
             var tweenFromR = _camera.transform.rotation;
@@ -54,30 +55,26 @@ public sealed class ModeSwitcher : MonoBehaviour
                 var s = math.smoothstep(0, 1, 1 - t);
                 _camera.transform.position = math.lerp(_target1st.position, tweenFrom, s);
                 _camera.transform.rotation = math.slerp(_target1st.rotation, tweenFromR, s);
-                UpdateTweenParams(s);
+                UpdateTweenParams(1 - t);
                 await Awaitable.NextFrameAsync();
             }
 
-            UpdateTweenParams(0);
-
             _cameraLinker.enabled = true;
-            _background.enabled = true;
         }
         else
         {
             // 1st person view mode -> 3rd person view mode
             _follower.enabled = true;
             _cameraLinker.enabled = false;
-            _background.enabled = false;
 
             for (var t = 0.0f; t < 1;)
             {
                 t = math.saturate(t + Time.deltaTime / TimeTo3rd);
-                UpdateTweenParams(math.smoothstep(0, 1, t));
+                UpdateTweenParams(t);
                 await Awaitable.NextFrameAsync();
             }
 
-            UpdateTweenParams(1);
+            _background.enabled = false;
         }
 
         _inTransition = false;
@@ -91,18 +88,24 @@ public sealed class ModeSwitcher : MonoBehaviour
     RcamBackground _background;
     bool _is1st, _inTransition;
 
-    void UpdateTweenParams(float s)
+    void UpdateTweenParams(float t)
     {
+        var fastT = math.smoothstep(0, 0.2f, t);
+        var slowT = math.smoothstep(0, 1, t);
+
         // Camera FOV
         var remote = CameraUtil.GetFieldOfView(_decoder.Metadata);
-        _camera.fieldOfView = math.lerp(remote, Fov3rd, s);
+        _camera.fieldOfView = math.lerp(remote, Fov3rd, slowT);
 
         // Main projector plane scale
         _mainPlane.localScale =
-          Vector3.one * math.lerp(PlaneScale1st, PlaneScale3rd, s);
+          Vector3.one * math.lerp(PlaneScale1st, PlaneScale3rd, slowT);
+
+        // Background opacity
+        _background.Opacity = 1 - fastT;
 
         // Point cloud VFX
-        if (s == 0)
+        if (t == 0)
         {
             for (var i = 0; i < _pointClouds.Length; i++)
                 _pointClouds[i].enabled = false;
@@ -112,7 +115,7 @@ public sealed class ModeSwitcher : MonoBehaviour
             for (var i = 0; i < _pointClouds.Length; i++)
             {
                 _pointClouds[i].enabled = true;
-                _pointClouds[i].SetFloat("Throttle", i == 0 ? 1 : s);
+                _pointClouds[i].SetFloat("Throttle", i == 0 ? 1 : slowT);
             }
         }
     }

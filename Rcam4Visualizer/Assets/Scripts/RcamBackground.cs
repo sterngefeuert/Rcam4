@@ -14,6 +14,9 @@ public sealed class RcamBackground : MonoBehaviour
     [field:SerializeField]
     public bool FrontFill { get; set; } = true;
 
+    [field:SerializeField, Range(0, 1)]
+    public float Opacity { get; set; } = 1;
+
     #endregion
 
     #region Scene object references
@@ -47,6 +50,7 @@ public sealed class RcamBackground : MonoBehaviour
 
         _props.SetFloat("_BackFill", BackFill ? 1 : 0);
         _props.SetFloat("_FrontFill", FrontFill ? 1 : 0);
+        _props.SetFloat("_Opacity", Opacity);
 
         _props.SetTexture(ShaderID.ColorMap, _decoder.ColorTexture);
         _props.SetTexture(ShaderID.DepthMap, _decoder.DepthTexture);
