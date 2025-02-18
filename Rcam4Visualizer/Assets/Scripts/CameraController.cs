@@ -71,6 +71,7 @@ public sealed class CameraController : MonoBehaviour
     bool _is1st = true;
     (float x, float v) _cameraFov;
     (float x, float v) _planeScale;
+    (float x, float v) _vfxScale;
 
     #endregion
 
@@ -89,13 +90,22 @@ public sealed class CameraController : MonoBehaviour
 
         var planeScaleTarget = _is1st ? PlaneScale1st : PlaneScale3rd;
 
+        var vfxScaleTarget = _is1st ? 0 : 1;
+
         var speed = _is1st ? PullSpeed : PushSpeed;
 
         _cameraFov = CdsTween.Step(_cameraFov, cameraFovTarget, speed);
         _planeScale = CdsTween.Step(_planeScale, planeScaleTarget, speed);
+        _vfxScale = CdsTween.Step(_vfxScale, vfxScaleTarget, speed);
 
         _camera.fieldOfView = _cameraFov.x;
         _mainPlane.localScale = Vector3.one * _planeScale.x;
+
+        foreach (var vfx in _vfx.GetComponentsInChildren<VisualEffect>())
+        {
+            if (vfx.gameObject.name == "Points") continue;
+            vfx.SetFloat("Throttle", _vfxScale.x);
+        }
     }
 
     #endregion
