@@ -226,7 +226,7 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83101590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Asset: {fileID: 8926484042661614526, guid: 2ef4518dfd53c4bf4a7d4ca254e0ea43, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
@@ -664,7 +664,7 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352379086}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Asset: {fileID: 8926484042661614526, guid: 2ef4518dfd53c4bf4a7d4ca254e0ea43, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
@@ -1023,7 +1023,7 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617817155}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Asset: {fileID: 8926484042661614526, guid: 2ef4518dfd53c4bf4a7d4ca254e0ea43, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
@@ -1072,7 +1072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &687601978
 Transform:
   m_ObjectHideFlags: 0
@@ -2818,7 +2818,7 @@ GameObject:
   - component: {fileID: 1823666545}
   - component: {fileID: 1823666544}
   m_Layer: 0
-  m_Name: Camera Controller
+  m_Name: Mode Switcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2880,9 +2880,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26c9c748229f4efeb078ce42f5b1cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LongFov>k__BackingField: 40
-  <PushSpeed>k__BackingField: 4
-  <PullSpeed>k__BackingField: 18
+  <Fov3rd>k__BackingField: 40
+  <TimeTo1st>k__BackingField: 0.5
+  <TimeTo3rd>k__BackingField: 2
   <PlaneScale1st>k__BackingField: 0.59
   <PlaneScale3rd>k__BackingField: 0.95
   _camera: {fileID: 1107918123}
@@ -2890,7 +2890,10 @@ MonoBehaviour:
   _follower: {fileID: 1107918125}
   _target1st: {fileID: 1874686797}
   _target3rd: {fileID: 214500077}
-  _vfx: {fileID: 687601977}
+  _pointClouds:
+  - {fileID: 83101594}
+  - {fileID: 352379091}
+  - {fileID: 617817160}
   _mainPlane: {fileID: 1861914530}
 --- !u!4 &1823666546
 Transform:
