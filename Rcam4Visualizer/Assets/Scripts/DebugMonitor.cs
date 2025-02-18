@@ -10,13 +10,11 @@ public sealed class DebugMonitor : MonoBehaviour
     [SerializeField] Transform _xformPivot = null;
     [SerializeField] Transform _xformOffset = null;
     [SerializeField] Transform _xformDistance = null;
-    [SerializeField] Transform _xformFocus = null;
 
     string InfoText
       => $"Pivot:    {_xformPivot.localPosition.z:F2}\n" +
          $"Offset:   {_xformOffset.localPosition.y:F2}\n" +
-         $"Distance: {-_xformDistance.localPosition.z:F2}\n" +
-         $"Focus:    {_xformFocus.localPosition.z:F2}\n";
+         $"Distance: {-_xformDistance.localPosition.z:F2}\n";
 
     Label _label;
     (VisualElement color, VisualElement depth) _images;

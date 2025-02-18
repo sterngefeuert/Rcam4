@@ -35,6 +35,9 @@ public static class CameraUtil
     public static Matrix4x4 GetInverseView(in Metadata md)
       => md.CameraPosition == Vector3.zero ? Matrix4x4.identity :
          Matrix4x4.TRS(md.CameraPosition, md.CameraRotation, Vector3.one);
+
+    public static float GetFieldOfView(in Metadata md)
+      => Mathf.Rad2Deg * Mathf.Atan(1 / md.ProjectionMatrix[1, 1]) * 2;
 }
 
 // Render texture allocation utility
