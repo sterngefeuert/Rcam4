@@ -24,7 +24,7 @@ public sealed class CameraController : MonoBehaviour
     [SerializeField] SmoothFollow _follower = null;
     [SerializeField] Transform _target1st = null;
     [SerializeField] Transform _target3rd = null;
-    [SerializeField] VisualEffect _vfx = null;
+    [SerializeField] GameObject _vfx = null;
     [SerializeField] Transform _mainPlane = null;
 
     #endregion
@@ -47,7 +47,7 @@ public sealed class CameraController : MonoBehaviour
             _follower.enabled = false;
             _cameraLinker.enabled = true;
             _background.enabled = true;
-            _vfx.enabled = false;
+            _vfx.SetActive(false);
         }
         else
         {
@@ -57,7 +57,7 @@ public sealed class CameraController : MonoBehaviour
             _follower.target = _target3rd;
             _cameraLinker.enabled = false;
             _background.enabled = false;
-            _vfx.enabled = true;
+            _vfx.SetActive(true);
         }
     }
 
@@ -68,7 +68,7 @@ public sealed class CameraController : MonoBehaviour
     CameraLinker _cameraLinker;
     RcamBackground _background;
 
-    bool _is1st;
+    bool _is1st = true;
     (float x, float v) _cameraFov;
     (float x, float v) _planeScale;
 
