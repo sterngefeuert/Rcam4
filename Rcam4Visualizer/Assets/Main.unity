@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 83101593}
   - component: {fileID: 83101592}
   - component: {fileID: 83101591}
+  - component: {fileID: 83101596}
   m_Layer: 0
   m_Name: Points
   m_TagString: Untagged
@@ -272,6 +273,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 687601978}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1818360609 &83101596
+RotationConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83101590}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 1330519131}
+    weight: 1
 --- !u!1 &140229547
 GameObject:
   m_ObjectHideFlags: 0
@@ -555,6 +576,7 @@ GameObject:
   - component: {fileID: 352379090}
   - component: {fileID: 352379089}
   - component: {fileID: 352379088}
+  - component: {fileID: 352379092}
   m_Layer: 0
   m_Name: Points 2
   m_TagString: Untagged
@@ -698,6 +720,26 @@ VisualEffect:
       - m_Value: 0
         m_Name: Background
         m_Overridden: 1
+--- !u!1818360609 &352379092
+RotationConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352379086}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 1330519131}
+    weight: 1
 --- !u!1 &356116625
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +956,7 @@ GameObject:
   - component: {fileID: 617817159}
   - component: {fileID: 617817158}
   - component: {fileID: 617817157}
+  - component: {fileID: 617817161}
   m_Layer: 0
   m_Name: Points 3
   m_TagString: Untagged
@@ -1057,6 +1100,26 @@ VisualEffect:
       - m_Value: 0
         m_Name: Background
         m_Overridden: 1
+--- !u!1818360609 &617817161
+RotationConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617817155}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 1330519131}
+    weight: 1
 --- !u!1 &687601977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 687601978}
+  - component: {fileID: 687601979}
   m_Layer: 0
   m_Name: Point Clouds
   m_TagString: Untagged
@@ -1081,7 +1145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687601977}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1090,7 +1154,32 @@ Transform:
   - {fileID: 352379087}
   - {fileID: 617817156}
   m_Father: {fileID: 1660139045}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0, y: 0, z: 0}
+--- !u!895512359 &687601979
+AimConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687601977}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_RotationAtRest: {x: -0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 180, z: 0}
+  m_AimVector: {x: 0, y: 0, z: 1}
+  m_UpVector: {x: 0, y: 1, z: 0}
+  m_WorldUpVector: {x: 0, y: 1, z: 0}
+  m_WorldUpObject: {fileID: 0}
+  m_UpType: 0
+  m_AffectRotationX: 0
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 0
+  m_Active: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 1107918121}
+    weight: 1
 --- !u!1 &694569378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,7 +1918,7 @@ Transform:
   m_GameObject: {fileID: 1107918120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2316,7 +2405,7 @@ Transform:
   m_GameObject: {fileID: 1484006031}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
