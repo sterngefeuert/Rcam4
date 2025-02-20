@@ -5,43 +5,56 @@ namespace Rcam4 {
 
 public sealed class DebugMonitor : MonoBehaviour
 {
+    #region Scene object references
+
     [SerializeField] FrameDecoder _decoder = null;
 
-    [SerializeField] Transform _xformPivot = null;
-    [SerializeField] Transform _xformOffset = null;
-    [SerializeField] Transform _xformDistance = null;
+    #endregion
 
-    string InfoText
-      => $"Pivot:    {_xformPivot.localPosition.z:F2}\n" +
-         $"Offset:   {_xformOffset.localPosition.y:F2}\n" +
-         $"Distance: {-_xformDistance.localPosition.z:F2}\n";
+    #region Private members
 
-    Label _label;
-    (VisualElement color, VisualElement depth) _images;
-    RenderTexture _prevColorRT;
+    Label _uiInfoLabel;
+    (VisualElement color, VisualElement depth) _uiImages;
+    RenderTexture _colorRT;
+
+    string GenerateInfoText(in Metadata data)
+    {
+        var p = data.CameraPosition;
+        var r = data.CameraRotation.eulerAngles;
+        var fov = CameraUtil.GetFieldOfView(data);
+        return $"Pos: {p.x:F2}, {p.y:F2}, {p.z:F2}\n" +
+               $"Rot: {r.x:F0}, {r.y:F0}, {r.z:F0}\n" +
+               $"FoV: {fov:F0} deg.";   
+    }
+
+    void AssignRenderTextures()
+    {
+        var color = Background.FromRenderTexture(_decoder.ColorTexture);
+        var depth = Background.FromRenderTexture(_decoder.DepthTexture);
+        _uiImages.color.style.backgroundImage = color;
+        _uiImages.depth.style.backgroundImage = depth;
+        _colorRT = _decoder.ColorTexture;
+    }
+
+    #endregion
+
+    #region MonoBehaviour implementation
 
     void Start()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
-        _label = root.Q<Label>("monitor-label");
-        _images.color = root.Q("monitor-color");
-        _images.depth = root.Q("monitor-depth");
+        _uiInfoLabel = root.Q<Label>("info-label");
+        _uiImages.color = root.Q("image-color");
+        _uiImages.depth = root.Q("image-depth");
     }
 
     void Update()
     {
-        _label.text = InfoText;
-
-        if (_prevColorRT == _decoder.ColorTexture) return;
-
-        var color = Background.FromRenderTexture(_decoder.ColorTexture);
-        var depth = Background.FromRenderTexture(_decoder.DepthTexture);
-
-        _images.color.style.backgroundImage = color;
-        _images.depth.style.backgroundImage = depth;
-
-        _prevColorRT = _decoder.ColorTexture;
+        _uiInfoLabel.text = GenerateInfoText(_decoder.Metadata);
+        if (_colorRT != _decoder.ColorTexture) AssignRenderTextures();
     }
+
+    #endregion
 }
 
 } // namespace Rcam4

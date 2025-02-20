@@ -2935,9 +2935,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _decoder: {fileID: 694569381}
-  _xformPivot: {fileID: 969721247}
-  _xformOffset: {fileID: 1321109000}
-  _xformDistance: {fileID: 214500077}
 --- !u!114 &1693156841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3029,7 +3026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26c9c748229f4efeb078ce42f5b1cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Fov3rd>k__BackingField: 40
+  <Fov3rd>k__BackingField: 70
   <TimeTo1st>k__BackingField: 0.5
   <TimeTo3rd>k__BackingField: 1
   <PlaneScale1st>k__BackingField: 0.59

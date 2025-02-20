@@ -6,10 +6,14 @@
                 <engine:DataBinding property="choices" data-source-path="SourceList" binding-mode="ToTarget" />
             </Bindings>
         </engine:DropdownField>
-        <engine:VisualElement name="monitor" style="position: absolute; right: 20px; bottom: 20px; flex-direction: row;">
-            <engine:Label text="Pivot:    0.00&#10;Offset:   0.00&#10;Distance: 0.00&#10;Focus:    0.00" name="monitor-label" style="width: 180px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Inconsolata/Inconsolata_SemiCondensed-ExtraLight.ttf?fileID=12800000&amp;guid=51c7153c783dd499a88b3f3032fb4820&amp;type=3#Inconsolata_SemiCondensed-ExtraLight&quot;); font-size: 20px;" />
-            <engine:VisualElement name="monitor-color" style="height: 144px; width: 192px;" />
-            <engine:VisualElement name="monitor-depth" style="width: 192px; height: 144px;" />
+        <engine:VisualElement name="monitor" style="position: absolute; bottom: 20px; right: 20px; align-items: flex-end;">
+            <engine:VisualElement name="metadata-monitor" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; background-color: rgba(0, 0, 0, 0.6); margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+                <engine:Label text="Pos: 0.00, 0.00, 0.00&#10;Rot: 180, 180, 180&#10;FoV: 30.0 deg." name="info-label" style="width: 260px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Inconsolata/Inconsolata_SemiCondensed-ExtraLight.ttf?fileID=12800000&amp;guid=51c7153c783dd499a88b3f3032fb4820&amp;type=3#Inconsolata_SemiCondensed-ExtraLight&quot;); font-size: 20px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="image-monitor" style="flex-direction: row;">
+                <engine:VisualElement name="image-color" style="height: 144px; width: 192px;" />
+                <engine:VisualElement name="image-depth" style="width: 192px; height: 144px;" />
+            </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>
 </engine:UXML>

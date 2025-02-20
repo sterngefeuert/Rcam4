@@ -36,11 +36,11 @@ public sealed class SourceSelector : MonoBehaviour
     VisualElement UIRoot
       => GetComponent<UIDocument>().rootVisualElement;
 
-    DropdownField UISelector
-      => UIRoot.Q<DropdownField>("selector");
-
     VisualElement UIMonitor
       => UIRoot.Q("monitor");
+
+    DropdownField UISelector
+      => UIRoot.Q<DropdownField>("selector");
 
     void ToggleUI()
       => UISelector.visible = UIMonitor.visible = (Cursor.visible ^= true);
