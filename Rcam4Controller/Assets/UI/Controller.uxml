@@ -8,79 +8,79 @@
                     <engine:DataBinding property="value" data-source-path="Knob0" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 2">
+            <VJUITK.VJKnob label="Knob 2" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob1" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 3">
+            <VJUITK.VJKnob label="Knob 3" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob2" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 4">
+            <VJUITK.VJKnob label="Knob 4" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob3" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 5">
+            <VJUITK.VJKnob label="Knob 5" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob4" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 6">
+            <VJUITK.VJKnob label="Knob 6" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob5" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 7">
+            <VJUITK.VJKnob label="Knob 7" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob6" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 8">
+            <VJUITK.VJKnob label="Knob 8" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob7" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
         </engine:VisualElement>
         <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
-            <VJUITK.VJKnob label="Knob 9">
+            <VJUITK.VJKnob label="Knob 9" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob8" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 10">
+            <VJUITK.VJKnob label="Knob 10" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob9" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 11">
+            <VJUITK.VJKnob label="Knob 11" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob10" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 12">
+            <VJUITK.VJKnob label="Knob 12" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob11" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 13">
+            <VJUITK.VJKnob label="Knob 13" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob12" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 14">
+            <VJUITK.VJKnob label="Knob 14" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob13" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 15">
+            <VJUITK.VJKnob label="Knob 15" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob14" binding-mode="ToSource" />
                 </Bindings>
             </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 16">
+            <VJUITK.VJKnob label="Knob 16" high-value="1">
                 <Bindings>
                     <engine:DataBinding property="value" data-source-path="Knob15" binding-mode="ToSource" />
                 </Bindings>

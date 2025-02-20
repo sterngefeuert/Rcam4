@@ -28,10 +28,10 @@ public unsafe struct InputState
     public void SetToggleData(int offset, int data)
       => Toggles[offset] = (byte)data;
 
-    public float GetKnobData(int offset)
+    public byte GetKnobData(int offset)
       => Knobs[offset];
 
-    public void SetKnobData(int offset, float value)
+    public void SetKnobData(int offset, int value)
       => Knobs[offset] = (byte)value;
 
     #endregion
