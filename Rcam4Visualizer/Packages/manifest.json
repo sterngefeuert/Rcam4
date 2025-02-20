@@ -8,6 +8,7 @@
     "jp.keijiro.klak.ndi": "2.1.4",
     "jp.keijiro.klutter-tools": "2.0.0",
     "jp.keijiro.metawire": "2.1.1",
+    "jp.keijiro.noiseshader": "3.0.0",
     "jp.keijiro.rcam4.common": "file:../../Rcam4Common",
     "jp.keijiro.vfxgraphassets": "3.8.0",
     "com.unity.modules.animation": "1.0.0",
