@@ -9,9 +9,9 @@ public sealed class InputHandle : MonoBehaviour
 {
     #region Internal state data
 
-    bool[] _buttons = new bool[16];
-    bool[] _toggles = new bool[16];
-    float[] _knobs = new float[16];
+    bool[] _buttons = new bool[ButtonCount];
+    bool[] _toggles = new bool[ToggleCount];
+    float[] _knobs = new float[KnobCount];
 
     #endregion
 
@@ -74,6 +74,10 @@ public sealed class InputHandle : MonoBehaviour
     #endregion
 
     #region Accessing by methods
+
+    public const int ButtonCount = 16;
+    public const int ToggleCount = 16;
+    public const int KnobCount = 16;
 
     public bool GetButton(int index) => _buttons[index];
     public void SetButton(int index, bool value) => _buttons[index] = value;

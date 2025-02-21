@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handle: {fileID: 816003169}
-  _knobIndex: 1
+  _knobIndex: 12
   _target: {fileID: 1590961505}
   _property: _Noise
 --- !u!1 &699194017
@@ -2537,7 +2537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handle: {fileID: 816003169}
-  _knobIndex: 4
+  _knobIndex: 5
   _target: {fileID: 1128596307}
   _delayToSleep: 1
 --- !u!1 &1233687272
@@ -3856,7 +3856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handle: {fileID: 816003169}
-  _knobIndex: 8
+  _knobIndex: 13
   _target: {fileID: 1590961505}
   _property: _BlackOut
 --- !u!114 &1884570149
@@ -3872,7 +3872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handle: {fileID: 816003169}
-  _knobIndex: 8
+  _knobIndex: 13
   _target: {fileID: 292174253}
   _property: _BlackOut
 --- !u!1 &2066936941
@@ -3920,7 +3920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handle: {fileID: 816003169}
-  _knobIndex: 0
+  _knobIndex: 2
   _target: {fileID: 140229552}
   _delayToSleep: 0
 --- !u!1 &2092364930
