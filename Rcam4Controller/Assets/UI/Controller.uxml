@@ -213,7 +213,7 @@
             </VJUITK.VJToggle>
         </engine:VisualElement>
     </engine:VisualElement>
-    <engine:VisualElement name="status-view" data-source-type="Rcam4.UIBinder, Assembly-CSharp" style="position: absolute; right: 40px; bottom: 20px;">
+    <engine:VisualElement name="status-view" data-source-type="Rcam4.StatusView, Assembly-CSharp" style="position: absolute; right: 40px; bottom: 20px;">
         <engine:Label text="POS -123.45 -123.45 -123.45" name="position-label">
             <Bindings>
                 <engine:DataBinding property="text" data-source-path="PositionText" binding-mode="ToTarget" />

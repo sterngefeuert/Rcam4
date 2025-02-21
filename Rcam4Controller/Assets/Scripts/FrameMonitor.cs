@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace Rcam4 {
 
-public sealed class Monitor : MonoBehaviour
+public sealed class FrameMonitor : MonoBehaviour
 {
     #region Scene object references
 

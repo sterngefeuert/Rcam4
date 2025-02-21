@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 namespace Rcam4 {
 
-sealed class UIBinder : MonoBehaviour
+public sealed class StatusView : MonoBehaviour
 {
     #region Scene object references
 

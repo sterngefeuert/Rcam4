@@ -1,18 +1,20 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/MonitorStyles.uss?fileID=7433441132597879392&amp;guid=3104e62c1a9ee4d1c9b321623348b6cb&amp;type=3#MonitorStyles" />
     <engine:VisualElement name="root" style="flex-grow: 1;">
-        <engine:DropdownField label="NDI Source" name="selector" data-source-type="Rcam4.SourceSelector, Assembly-CSharp" style="position: absolute; top: 30px; left: 30px; width: 600px;">
-            <Bindings>
-                <engine:DataBinding property="choices" data-source-path="SourceList" binding-mode="ToTarget" />
-            </Bindings>
-        </engine:DropdownField>
-        <engine:VisualElement name="monitor" style="position: absolute; bottom: 20px; right: 20px; align-items: flex-end;">
-            <engine:VisualElement name="metadata-monitor" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; background-color: rgba(0, 0, 0, 0.6); margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
-                <engine:Label text="Pos: 0.00, 0.00, 0.00&#10;Rot: 180, 180, 180&#10;FoV: 30.0 deg." name="info-label" style="width: 260px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Inconsolata/Inconsolata_SemiCondensed-ExtraLight.ttf?fileID=12800000&amp;guid=51c7153c783dd499a88b3f3032fb4820&amp;type=3#Inconsolata_SemiCondensed-ExtraLight&quot;); font-size: 20px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
-            </engine:VisualElement>
-            <engine:VisualElement name="image-monitor" style="flex-direction: row;">
-                <engine:VisualElement name="image-color" style="height: 144px; width: 192px;" />
-                <engine:VisualElement name="image-depth" style="width: 192px; height: 144px;" />
+        <engine:VisualElement name="display" style="flex-grow: 1;">
+            <engine:DropdownField label="NDI Source" name="selector" data-source-type="Rcam4.SourceSelector, Assembly-CSharp" style="position: absolute; top: 30px; left: 30px; width: 600px;">
+                <Bindings>
+                    <engine:DataBinding property="choices" data-source-path="SourceList" binding-mode="ToTarget" />
+                </Bindings>
+            </engine:DropdownField>
+            <engine:VisualElement name="monitor" style="position: absolute; bottom: 20px; right: 20px; align-items: flex-end;">
+                <engine:VisualElement name="metadata-monitor" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; background-color: rgba(0, 0, 0, 0.6); margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+                    <engine:Label text="Pos: 0.00, 0.00, 0.00&#10;Rot: 180, 180, 180&#10;FoV: 30.0 deg." name="info-label" style="width: 260px; -unity-font-definition: url(&quot;project://database/Assets/UI/Fonts/Inconsolata/Inconsolata_SemiCondensed-ExtraLight.ttf?fileID=12800000&amp;guid=51c7153c783dd499a88b3f3032fb4820&amp;type=3#Inconsolata_SemiCondensed-ExtraLight&quot;); font-size: 20px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="image-monitor" style="flex-direction: row;">
+                    <engine:VisualElement name="image-color" style="height: 144px; width: 192px;" />
+                    <engine:VisualElement name="image-depth" style="width: 192px; height: 144px;" />
+                </engine:VisualElement>
             </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>

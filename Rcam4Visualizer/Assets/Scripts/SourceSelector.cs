@@ -4,7 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Unity.Properties;
-using Cursor = UnityEngine.Cursor;
 
 namespace Rcam4 {
 
@@ -36,14 +35,8 @@ public sealed class SourceSelector : MonoBehaviour
     VisualElement UIRoot
       => GetComponent<UIDocument>().rootVisualElement;
 
-    VisualElement UIMonitor
-      => UIRoot.Q("monitor");
-
     DropdownField UISelector
       => UIRoot.Q<DropdownField>("selector");
-
-    void ToggleUI()
-      => UISelector.visible = UIMonitor.visible = (Cursor.visible ^= true);
 
     void SelectSource(string name)
     {
@@ -60,14 +53,8 @@ public sealed class SourceSelector : MonoBehaviour
         // This component as a UI data source
         UIRoot.dataSource = this;
 
-        // UI root as a clickable UI visibility toggle
-        UIRoot.AddManipulator(new Clickable(ToggleUI));
-
         // Dropdown selection callback
         UISelector.RegisterValueChangedCallback(evt => SelectSource(evt.newValue));
-
-        // Initially hidden UI
-        ToggleUI();
 
         // Initial source selection
         if (PlayerPrefs.HasKey(PrefKey))
