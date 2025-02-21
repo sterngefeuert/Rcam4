@@ -1,6 +1,16 @@
 #include "Packages/jp.keijiro.noiseshader/Shader/Noise1D.hlsl"
 #include "Packages/jp.keijiro.noiseshader/Shader/SimplexNoise2D.hlsl"
 
+void ColorSampleWithBlackOut_float
+  (UnityTexture2D Source,
+   float2 UV,
+   float BlackOut,
+   out float3 Output)
+{
+    float3 srgb = LinearToSRGB(tex2D(Source, UV).rgb) * (1 - BlackOut);
+    Output = SRGBToLinear(srgb);
+}
+
 void OverlaySoftEdge_float
   (UnityTexture2D RefTexture,
    float2 UV,
@@ -14,10 +24,11 @@ void OverlaySoftEdge_float
 }
 
 void Background_float
-  (UnityTexture2D RefTexture,
+  (UnityTexture2D Source,
    float2 UV,
    float2 Frequency,
    float NoiseAmp,
+   float BlackOut,
    out float3 Output)
 {
     // Noise animation
@@ -27,5 +38,8 @@ void Background_float
 
     // Composition
     float amp = saturate(lerp(-1, 2, NoiseAmp) + clamp(n, -1, 1));
-    Output = tex2D(RefTexture, UV).rgb * amp;
+    float3 srgb = LinearToSRGB(tex2D(Source, UV).rgb);
+    srgb *= amp * (1 - BlackOut);
+
+    Output = SRGBToLinear(srgb);
 }

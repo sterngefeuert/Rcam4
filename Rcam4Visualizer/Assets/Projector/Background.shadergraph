@@ -8,6 +8,9 @@
         },
         {
             "m_Id": "51f71e9762354c0e9b1785f379bb3563"
+        },
+        {
+            "m_Id": "5e6ae80f87794bd89ff7157ab92eda76"
         }
     ],
     "m_Keywords": [],
@@ -44,11 +47,28 @@
         },
         {
             "m_Id": "beeb6a3e6db94e16b5d6265350646e7b"
+        },
+        {
+            "m_Id": "34bccfa08cf24b90b20f2a5daca31376"
         }
     ],
     "m_GroupDatas": [],
     "m_StickyNoteDatas": [],
     "m_Edges": [
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "34bccfa08cf24b90b20f2a5daca31376"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "becbc7081a30498dbfc1087054f0161a"
+                },
+                "m_SlotId": 5
+            }
+        },
         {
             "m_OutputSlot": {
                 "m_Node": {
@@ -196,6 +216,21 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "1bedb6f8870d47998e42fd94ceefafe2",
+    "m_Id": 0,
+    "m_DisplayName": "BlackOut",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.UVMaterialSlot",
     "m_ObjectId": "1ce1014f57ef40d99302677b674722d0",
     "m_Id": 0,
@@ -268,6 +303,42 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "34bccfa08cf24b90b20f2a5daca31376",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -450.0,
+            "y": 407.0,
+            "width": 122.0,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "1bedb6f8870d47998e42fd94ceefafe2"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "5e6ae80f87794bd89ff7157ab92eda76"
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "3636c8d7072149a989c2e7acac5733bc",
     "m_Group": {
         "m_Id": ""
@@ -277,10 +348,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -417.9999694824219,
-            "y": 394.0,
-            "width": 104.99996948242188,
-            "height": 33.999969482421878
+            "x": -433.0,
+            "y": 373.0,
+            "width": 105.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -481,6 +552,34 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "5e6ae80f87794bd89ff7157ab92eda76",
+    "m_Guid": {
+        "m_GuidSerialized": "f79c81c4-4f0d-48e5-84a2-f7dd42c67f34"
+    },
+    "m_Name": "BlackOut",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "BlackOut",
+    "m_DefaultReferenceName": "_BlackOut",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 1,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.TilingAndOffsetNode",
     "m_ObjectId": "5ea314c5469a4acd898852b36d9317ea",
@@ -492,9 +591,9 @@
         "m_Expanded": false,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -453.9999694824219,
-            "y": 199.99996948242188,
-            "width": 140.99996948242188,
+            "x": -469.0,
+            "y": 179.0,
+            "width": 141.0,
             "height": 93.0
         }
     },
@@ -611,6 +710,9 @@
         },
         {
             "m_Id": "51f71e9762354c0e9b1785f379bb3563"
+        },
+        {
+            "m_Id": "5e6ae80f87794bd89ff7157ab92eda76"
         }
     ]
 }
@@ -637,6 +739,21 @@
     },
     "m_Labels": [],
     "m_Space": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "9244621ddb5444329d8224b827b56a23",
+    "m_Id": 5,
+    "m_DisplayName": "BlackOut",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "BlackOut",
+    "m_StageCapability": 3,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
 {
@@ -715,10 +832,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -440.4999694824219,
-            "y": 165.99998474121095,
-            "width": 128.49996948242188,
-            "height": 33.99998474121094
+            "x": -455.5,
+            "y": 145.0,
+            "width": 127.5,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -830,6 +947,9 @@
             "m_Id": "606490d65ae148e5ac7eecba7d50ae25"
         },
         {
+            "m_Id": "9244621ddb5444329d8224b827b56a23"
+        },
+        {
             "m_Id": "489ed41ecc9c482dacc7f88c962cb9d3"
         }
     ],
@@ -863,10 +983,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -440.0,
-            "y": 292.9999694824219,
+            "x": -455.0,
+            "y": 272.0,
             "width": 127.0,
-            "height": 101.00003051757813
+            "height": 101.0
         }
     },
     "m_Slots": [
