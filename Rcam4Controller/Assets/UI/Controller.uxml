@@ -1,216 +1,141 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Controller.uss?fileID=7433441132597879392&amp;guid=00140bd20229342af86863d39b5bbcf2&amp;type=3#Controller" />
     <engine:VisualElement name="monitor" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; -unity-background-image-tint-color: rgb(191, 191, 191);" />
-    <engine:VisualElement name="controller" data-source-type="Rcam4.InputHandle, Rcam4.Common.Runtime" style="position: absolute; top: 40px; bottom: 40px; left: 100px;">
+    <engine:VisualElement name="controller" data-source-type="Rcam4.InputHandle, Rcam4.Common.Runtime" style="position: absolute; top: 40px; bottom: 40px; left: 100px; right: 100px;">
         <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
-            <VJUITK.VJKnob label="Knob 1" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob0" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 2" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob1" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 3" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob2" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 4" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob3" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 5" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob4" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 6" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob5" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 7" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob6" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 8" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob7" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Particle VFX" class="control-section-label" />
+                <VJUITK.VJKnob label="Sparkles" high-value="1" value="0.5">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob0" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJKnob label="Flame" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob1" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJKnob label="Balls" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob2" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJKnob label="Bubbles" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob3" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+            </engine:VisualElement>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Body VFX" class="control-section-label" />
+                <VJUITK.VJKnob label="Lightning" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob4" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJToggle label="Spikes">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Toggle0" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJToggle>
+                <VJUITK.VJToggle label="Voxels">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Toggle0" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJToggle>
+            </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
-            <VJUITK.VJKnob label="Knob 9" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob8" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 10" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob9" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 11" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob10" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 12" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob11" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 13" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob12" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 14" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob13" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 15" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob14" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
-            <VJUITK.VJKnob label="Knob 16" high-value="1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Knob15" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJKnob>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Environment VFX" class="control-section-label" />
+                <VJUITK.VJKnob label="Shards" high-value="1" value="0.5">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob7" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJKnob label="Petals" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob8" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJKnob label="Speed" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob9" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+            </engine:VisualElement>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Feedback" class="control-section-label" />
+                <VJUITK.VJToggle label="Enable">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Toggle0" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJToggle>
+                <VJUITK.VJKnob label="Scale" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob11" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJKnob label="Translate" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob12" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJKnob label="Hue Shift" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob13" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+            </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
-            <VJUITK.VJButton label="Button 1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button0" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 2">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button1" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 3">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button2" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 4">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button3" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 5">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button4" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 6">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button5" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 7">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button6" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 8">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button7" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-        </engine:VisualElement>
-        <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
-            <VJUITK.VJButton label="Button 9">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button8" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 10">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button9" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 11">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button10" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 12">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button11" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 13">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button12" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 14">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button13" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 15">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button14" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-            <VJUITK.VJButton label="Button 16">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Button15" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJButton>
-        </engine:VisualElement>
-        <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
-            <VJUITK.VJToggle label="Toggle 1">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Toggle0" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJToggle>
-            <VJUITK.VJToggle label="Toggle 2">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Toggle1" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJToggle>
-            <VJUITK.VJToggle label="Toggle 3">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Toggle2" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJToggle>
-            <VJUITK.VJToggle label="Toggle 4">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Toggle3" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJToggle>
-            <VJUITK.VJToggle label="Toggle 5">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Toggle4" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJToggle>
-            <VJUITK.VJToggle label="Toggle 6">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Toggle5" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJToggle>
-            <VJUITK.VJToggle label="Toggle 7">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Toggle6" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJToggle>
-            <VJUITK.VJToggle label="Toggle 8">
-                <Bindings>
-                    <engine:DataBinding property="value" data-source-path="Toggle7" binding-mode="ToSource" />
-                </Bindings>
-            </VJUITK.VJToggle>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Camera" class="control-section-label" />
+                <VJUITK.VJToggle label="3rd Pers">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Toggle0" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJToggle>
+                <VJUITK.VJKnob label="Distance" high-value="1" value="0.5">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob14" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+            </engine:VisualElement>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Recolor" class="control-section-label" />
+                <VJUITK.VJKnob label="BG" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob15" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJKnob label="FG" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob16" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+            </engine:VisualElement>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="BG Segment" class="control-section-label" />
+                <VJUITK.VJToggle label="Opacity" value="true">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Toggle0" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJToggle>
+            </engine:VisualElement>
+            <engine:VisualElement name="section" class="control-section">
+                <engine:Label text="Projector" class="control-section-label" />
+                <VJUITK.VJKnob label="2nd Plane" high-value="1" value="0.5">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob18" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+                <VJUITK.VJKnob label="Fade Out" high-value="1">
+                    <Bindings>
+                        <engine:DataBinding property="value" data-source-path="Knob19" binding-mode="ToSource" />
+                    </Bindings>
+                </VJUITK.VJKnob>
+            </engine:VisualElement>
         </engine:VisualElement>
     </engine:VisualElement>
     <engine:VisualElement name="status-view" data-source-type="Rcam4.StatusView, Assembly-CSharp" style="position: absolute; right: 40px; bottom: 20px;">

@@ -3,3 +3,15 @@
     -unity-font-definition: url("project://database/Assets/UI/Fonts/Inconsolata/Inconsolata_SemiCondensed-ExtraLight.ttf?fileID=12800000&guid=51c7153c783dd499a88b3f3032fb4820&type=3#Inconsolata_SemiCondensed-ExtraLight");
     font-size: 24px;
 }
+
+.control-section-label {
+    position: absolute;
+    top: -26px;
+    font-size: 16px;
+    color: rgb(207, 207, 207);
+}
+
+.control-section {
+    flex-direction: row;
+    flex-grow: 1;
+}
