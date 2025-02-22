@@ -104,7 +104,7 @@ public sealed class ModeSwitcher : MonoBehaviour
           Vector3.one * math.lerp(PlaneScale1st, PlaneScale3rd, slowT);
 
         // Background opacity
-        _background.Opacity = 1 - fastT;
+        _background.TotalOpacity = 1 - fastT;
 
         // Point cloud VFX
         if (t == 0)

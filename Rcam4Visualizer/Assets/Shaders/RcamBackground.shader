@@ -11,7 +11,6 @@ sampler2D _DepthMap;
 float4 _InverseProjection;
 float4x4 _InverseView;
 float _BackFill, _FrontFill;
-float _Opacity;
 
 void Vertex(uint vertexID : VERTEXID_SEMANTIC,
             out float4 outPosition : SV_Position,
@@ -39,13 +38,9 @@ void Fragment(float4 position : SV_Position,
     // Human stencil
     float a = c.a > 0.51;
 
-    // Background/foreground mask
-    if (!((_BackFill > 0.5 && a < 0.5) ||
-          (_FrontFill > 0.5 && a > 0.5))) discard;
-
     // Stochastic transparency
     float rand = GenerateHashedRandomFloat(position.xy);
-    if (rand >= _Opacity) discard;
+    if (rand >= (a < 0.5 ? _BackFill : _FrontFill)) discard;
 
     // Output
     outColor = float4(c.rgb, a);
