@@ -8,11 +8,11 @@ public sealed class RecolorEffect : MonoBehaviour
 {
     #region Editable properties
 
-    [field:SerializeField]
-    public bool BackFill { get; set; }
+    [field:SerializeField, Range(0, 1)]
+    public float BackOpacity { get; set; }
 
-    [field:SerializeField]
-    public bool FrontFill { get; set; }
+    [field:SerializeField, Range(0, 1)]
+    public float FrontOpacity { get; set; }
 
     [field:SerializeField, Range(0, 1)]
     public float BaseHue { get; set; } = 0.5f;
@@ -24,7 +24,7 @@ public sealed class RecolorEffect : MonoBehaviour
 
     #region Public properties
 
-    public bool IsActive => BackFill || FrontFill;
+    public bool IsActive => BackOpacity > 0 || FrontOpacity > 0;
 
     public MaterialPropertyBlock Properties => UpdateMaterialProperties();
 
@@ -69,11 +69,11 @@ public sealed class RecolorEffect : MonoBehaviour
     MaterialPropertyBlock UpdateMaterialProperties()
     {
         if (_props == null) _props = new MaterialPropertyBlock();
-        _props.SetMatrix("_BgColors", Palette1);
-        _props.SetMatrix("_FgColors", Palette2);
-        _props.SetFloat("_BackFill", BackFill ? 1 : 0);
-        _props.SetFloat("_FrontFill", FrontFill ? 1 : 0);
-        _props.SetFloat("_Dithering", Dithering);
+        _props.SetMatrix(PropIDs._BgColors, Palette1);
+        _props.SetMatrix(PropIDs._FgColors, Palette2);
+        _props.SetFloat(PropIDs._BackFill, BackOpacity);
+        _props.SetFloat(PropIDs._FrontFill, FrontOpacity);
+        _props.SetFloat(PropIDs._Dithering, Dithering);
         return _props;
     }
 
