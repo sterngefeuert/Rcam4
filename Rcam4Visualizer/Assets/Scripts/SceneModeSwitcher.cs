@@ -117,7 +117,7 @@ public sealed class ModeSwitcher : MonoBehaviour
             for (var i = 0; i < _pointClouds.Length; i++)
             {
                 _pointClouds[i].enabled = true;
-                _pointClouds[i].SetFloat("Throttle", i == 0 ? 1 : slowT);
+                _pointClouds[i].SetFloat(PropIDs.Throttle, i == 0 ? 1 : slowT);
             }
         }
     }

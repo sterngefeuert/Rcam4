@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.VFX;
 
 namespace Rcam4 {
 
-public sealed class KnobToEvent : MonoBehaviour
+public sealed class KnobToVfxThrottle : MonoBehaviour
 {
     #region Editable attributes
 
@@ -17,8 +16,6 @@ public sealed class KnobToEvent : MonoBehaviour
 
     #region Private members
 
-    static readonly int kThrottleID = Shader.PropertyToID("Throttle");
-
     float _zeroTimer;
 
     #endregion
@@ -30,7 +27,7 @@ public sealed class KnobToEvent : MonoBehaviour
         var input = _handle.GetKnob(_knobIndex);
         _zeroTimer = input > 0.01f ? 0 : _zeroTimer + Time.deltaTime;
         _target.enabled = _zeroTimer <= _delayToSleep;
-        _target.SetFloat(kThrottleID, input);
+        _target.SetFloat(PropIDs.Throttle, input);
     }
 
     #endregion
