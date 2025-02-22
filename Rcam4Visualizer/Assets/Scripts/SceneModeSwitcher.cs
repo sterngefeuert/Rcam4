@@ -5,7 +5,7 @@ using Klak.Motion;
 
 namespace Rcam4 {
 
-// Mode Switcher: 1st person view mode <-> 3rd person view mode
+// Scene Mode Switcher: 1st person view mode <-> 3rd person view mode
 public sealed class ModeSwitcher : MonoBehaviour
 {
     #region Editable properties
@@ -29,56 +29,9 @@ public sealed class ModeSwitcher : MonoBehaviour
 
     #endregion
 
-    #region Public methods
+    #region Public runtime properties
 
-    public async void ToggleMode()
-    {
-        // Reentrance guard
-        if (_inTransition) return;
-        _inTransition = true;
-
-        // Mode flip
-        _is1st = !_is1st;
-
-        if (_is1st)
-        {
-            // 3rd person view mode -> 1st person view mode
-            _follower.enabled = false;
-            _background.enabled = true;
-
-            var tweenFrom = _camera.transform.position;
-            var tweenFromR = _camera.transform.rotation;
-
-            for (var t = 0.0f; t < 1;)
-            {
-                t = math.saturate(t + Time.deltaTime / TimeTo1st);
-                var s = math.smoothstep(0, 1, 1 - t);
-                _camera.transform.position = math.lerp(_target1st.position, tweenFrom, s);
-                _camera.transform.rotation = math.slerp(_target1st.rotation, tweenFromR, s);
-                UpdateTweenParams(1 - t);
-                await Awaitable.NextFrameAsync();
-            }
-
-            _cameraLinker.enabled = true;
-        }
-        else
-        {
-            // 1st person view mode -> 3rd person view mode
-            _follower.enabled = true;
-            _cameraLinker.enabled = false;
-
-            for (var t = 0.0f; t < 1;)
-            {
-                t = math.saturate(t + Time.deltaTime / TimeTo3rd);
-                UpdateTweenParams(t);
-                await Awaitable.NextFrameAsync();
-            }
-
-            _background.enabled = false;
-        }
-
-        _inTransition = false;
-    }
+    public bool In3rdPersonMode { get => _in3rd; set => TryChangeMode(value); }
 
     #endregion
 
@@ -86,7 +39,56 @@ public sealed class ModeSwitcher : MonoBehaviour
 
     CameraLinker _cameraLinker;
     RcamBackground _background;
-    bool _is1st, _inTransition;
+    bool _in3rd, _inTransition;
+
+    void TryChangeMode(bool requested)
+    {
+        if (requested == _in3rd || _inTransition) return;
+        _in3rd = requested;
+        AsyncUtil.Forget(_in3rd ? TransitionTo3rd() : TransitionTo1st());
+    }
+
+    // 1st person view mode -> 3rd person view mode
+    public async Awaitable TransitionTo3rd()
+    {
+        _inTransition = true;
+        _follower.enabled = true;
+        _cameraLinker.enabled = false;
+
+        for (var t = 0.0f; t < 1;)
+        {
+            t = math.saturate(t + Time.deltaTime / TimeTo3rd);
+            UpdateTweenParams(t);
+            await Awaitable.NextFrameAsync();
+        }
+
+        _background.enabled = false;
+        _inTransition = false;
+    }
+
+    // 3rd person view mode -> 1st person view mode
+    public async Awaitable TransitionTo1st()
+    {
+        _inTransition = true;
+        _follower.enabled = false;
+        _background.enabled = true;
+
+        var p0 = _camera.transform.position;
+        var r0 = _camera.transform.rotation;
+
+        for (var t = 0.0f; t < 1;)
+        {
+            t = math.saturate(t + Time.deltaTime / TimeTo1st);
+            var s = math.smoothstep(0, 1, 1 - t);
+            _camera.transform.position = math.lerp(_target1st.position, p0, s);
+            _camera.transform.rotation = math.slerp(_target1st.rotation, r0, s);
+            UpdateTweenParams(1 - t);
+            await Awaitable.NextFrameAsync();
+        }
+
+        _cameraLinker.enabled = true;
+        _inTransition = false;
+    }
 
     void UpdateTweenParams(float t)
     {
@@ -128,7 +130,6 @@ public sealed class ModeSwitcher : MonoBehaviour
     {
         _cameraLinker = _camera.GetComponent<CameraLinker>();
         _background = _camera.GetComponent<RcamBackground>();
-        ToggleMode(); // Starting from the 1st person view mode
     }
 
     #endregion

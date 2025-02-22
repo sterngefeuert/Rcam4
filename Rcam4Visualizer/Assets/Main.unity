@@ -3548,7 +3548,7 @@ GameObject:
   - component: {fileID: 1823666546}
   - component: {fileID: 1823666545}
   m_Layer: 0
-  m_Name: Mode Switcher
+  m_Name: Scene Mode Switcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3606,7 +3606,7 @@ GameObject:
   - component: {fileID: 1840985949}
   - component: {fileID: 1840985950}
   m_Layer: 0
-  m_Name: Mode Switcher
+  m_Name: Scene Mode Switcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3640,31 +3640,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handle: {fileID: 816003169}
-  _buttonIndex: 0
-  _triggerAction:
-    m_Name: Trigger
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 3d5ff6c4-6002-4876-93bb-49c87c4dbf65
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 186d8cdd-f46d-4a3d-938e-b5aac5094abe
-      m_Path: <Keyboard>/z
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Trigger
-      m_Flags: 0
-    m_Flags: 0
+  _toggleIndex: 6
   _event:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1823666545}
-        m_TargetAssemblyTypeName: Rcam4.CameraController, Assembly-CSharp
-        m_MethodName: ToggleMode
-        m_Mode: 1
+        m_TargetAssemblyTypeName: Rcam4.ModeSwitcher, Assembly-CSharp
+        m_MethodName: set_In3rdPersonMode
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4048,7 +4031,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092364930}
   m_Enabled: 0
-  m_Asset: {fileID: 8926484042661614526, guid: b54d39d885f5043829a184ff56290d83, type: 3}
+  m_Asset: {fileID: 0}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
