@@ -3854,7 +3854,7 @@ MonoBehaviour:
   _handle: {fileID: 816003169}
   _knobIndex: 0
   _target: {fileID: 1236087254}
-  _delayToSleep: 4
+  _delayToSleep: 5
 --- !u!1 &1314305739
 GameObject:
   m_ObjectHideFlags: 0
