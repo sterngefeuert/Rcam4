@@ -881,8 +881,8 @@ MonoBehaviour:
   _handle: {fileID: 816003169}
   _toggleIndex: 2
   _target: {fileID: 1597431967}
-  _transitionTime: 2
-  _delayToSleep: 3
+  _transitionTime: 0.3
+  _delayToSleep: 2
 --- !u!1 &321641914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4557,7 +4557,7 @@ MonoBehaviour:
   _handle: {fileID: 816003169}
   _toggleIndex: 4
   _target: {fileID: 967325576}
-  _transitionTime: 2
+  _transitionTime: 0.5
   _delayToSleep: 3
 --- !u!1 &1660139044
 GameObject:
