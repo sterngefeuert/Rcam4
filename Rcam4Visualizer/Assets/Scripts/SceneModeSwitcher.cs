@@ -62,7 +62,6 @@ public sealed class ModeSwitcher : MonoBehaviour
             await Awaitable.NextFrameAsync();
         }
 
-        _background.enabled = false;
         _inTransition = false;
     }
 
@@ -71,7 +70,6 @@ public sealed class ModeSwitcher : MonoBehaviour
     {
         _inTransition = true;
         _follower.enabled = false;
-        _background.enabled = true;
 
         var p0 = _camera.transform.position;
         var r0 = _camera.transform.rotation;

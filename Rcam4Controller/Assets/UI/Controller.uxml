@@ -32,22 +32,24 @@
                 <VJUITK.VJKnob name="knob-8" label="Translate" high-value="1" />
                 <VJUITK.VJKnob name="knob-9" label="Hue Shift" high-value="1" value="0.5" />
             </engine:VisualElement>
-        </engine:VisualElement>
-        <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">
                 <engine:Label text="Camera" class="control-section-label" />
                 <VJUITK.VJToggle name="toggle-5" label="3rd Pers" />
                 <VJUITK.VJKnob name="knob-10" label="Distance" high-value="1" value="0.5" />
             </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">
-                <engine:Label text="Recolor" class="control-section-label" />
-                <VJUITK.VJToggle name="toggle-6" label="Human" />
-                <VJUITK.VJToggle name="toggle-7" label="BG" />
-                <VJUITK.VJKnob name="knob-11" label="Hue" high-value="1" />
+                <engine:Label text="Segments" class="control-section-label" />
+                <VJUITK.VJToggle name="toggle-6" label="Human" value="true" />
+                <VJUITK.VJToggle name="toggle-7" label="BG" value="true" />
+                <VJUITK.VJToggle name="toggle-8" label="Human Fx" />
             </engine:VisualElement>
             <engine:VisualElement name="section" class="control-section">
-                <engine:Label text="BG Segment" class="control-section-label" />
-                <VJUITK.VJToggle name="toggle-8" label="Opacity" value="true" />
+                <engine:Label text="Recolor" class="control-section-label" />
+                <VJUITK.VJToggle name="toggle-9" label="Human" />
+                <VJUITK.VJToggle name="toggle-10" label="BG" />
+                <VJUITK.VJKnob name="knob-11" label="Hue" high-value="1" />
             </engine:VisualElement>
             <engine:VisualElement name="section" class="control-section">
                 <engine:Label text="Projector" class="control-section-label" />

@@ -17,6 +17,12 @@ public sealed class RcamBackground : MonoBehaviour
     [field:SerializeField, Range(0, 1)]
     public float TotalOpacity { get; set; } = 1;
 
+    [field:SerializeField, ColorUsage(false, true)]
+    public Color EffectColor { get; set; } = new Color(1, 1, 1, 1);
+
+    [field:SerializeField, Range(0, 1)]
+    public float EffectOpacity { get; set; } = 0;
+
     #endregion
 
     #region Scene object references
@@ -42,17 +48,22 @@ public sealed class RcamBackground : MonoBehaviour
         if (_props == null) _props = new MaterialPropertyBlock();
         if (_decoder == null || _decoder.ColorTexture == null) return _props;
 
+        // Rcam properties
         var inv_proj = CameraUtil.GetInverseProjection(_decoder.Metadata);
         var inv_view = CameraUtil.GetInverseView(_decoder.Metadata);
-
         _props.SetVector(ShaderID.InverseProjection, inv_proj);
         _props.SetMatrix(ShaderID.InverseView, inv_view);
 
+        _props.SetTexture(ShaderID.ColorMap, _decoder.ColorTexture);
+        _props.SetTexture(ShaderID.DepthMap, _decoder.DepthTexture);
+
+        // Other properties
         _props.SetFloat(PropIDs._BackFill, BackOpacity * TotalOpacity);
         _props.SetFloat(PropIDs._FrontFill, FrontOpacity * TotalOpacity);
 
-        _props.SetTexture(ShaderID.ColorMap, _decoder.ColorTexture);
-        _props.SetTexture(ShaderID.DepthMap, _decoder.DepthTexture);
+        var eff_color = EffectColor;
+        eff_color.a = EffectOpacity;
+        _props.SetColor(PropIDs._EffectColor, eff_color);
 
         return _props;
     }

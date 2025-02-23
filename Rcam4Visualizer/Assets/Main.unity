@@ -1314,6 +1314,68 @@ Transform:
   - {fileID: 1730648941}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &373572316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373572317}
+  - component: {fileID: 373572318}
+  m_Layer: 0
+  m_Name: BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &373572317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373572316}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2043729036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &373572318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373572316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84637087b68a44d34b60eae74c027a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handle: {fileID: 816003169}
+  _toggleIndex: 7
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1107918126}
+        m_TargetAssemblyTypeName: Rcam4.RcamBackground, Assembly-CSharp
+        m_MethodName: set_BackOpacity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _transitionTime: 0.2
 --- !u!1 &389021039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,7 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handle: {fileID: 816003169}
-  _toggleIndex: 7
+  _toggleIndex: 10
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -1620,7 +1682,7 @@ GameObject:
   - component: {fileID: 586674472}
   - component: {fileID: 586674473}
   m_Layer: 0
-  m_Name: Opacity
+  m_Name: Human
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1654,13 +1716,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handle: {fileID: 816003169}
-  _toggleIndex: 8
+  _toggleIndex: 6
   _event:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1107918126}
         m_TargetAssemblyTypeName: Rcam4.RcamBackground, Assembly-CSharp
-        m_MethodName: set_BackOpacity
+        m_MethodName: set_FrontOpacity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2605,8 +2667,8 @@ Transform:
   - {fileID: 350268844}
   - {fileID: 1758089428}
   - {fileID: 257610740}
-  - {fileID: 321641915}
   - {fileID: 2043729036}
+  - {fileID: 321641915}
   - {fileID: 751668097}
   m_Father: {fileID: 265158968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3135,6 +3197,8 @@ MonoBehaviour:
   <BackOpacity>k__BackingField: 1
   <FrontOpacity>k__BackingField: 1
   <TotalOpacity>k__BackingField: 1
+  <EffectColor>k__BackingField: {r: 1.0165148, g: 1.1611146, b: 1.2080895, a: 1}
+  <EffectOpacity>k__BackingField: 0
   _decoder: {fileID: 694569381}
 --- !u!114 &1107918127
 MonoBehaviour:
@@ -3143,7 +3207,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107918120}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87f1a594d8bb04ddcba3f1106750bd01, type: 3}
   m_Name: 
@@ -3535,7 +3599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1236087250
 Transform:
   m_ObjectHideFlags: 0
@@ -3996,7 +4060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handle: {fileID: 816003169}
-  _toggleIndex: 6
+  _toggleIndex: 9
   _event:
     m_PersistentCalls:
       m_Calls:
@@ -5505,7 +5569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2043729036}
   m_Layer: 0
-  m_Name: BG Segment
+  m_Name: Segments
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5525,6 +5589,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 586674472}
+  - {fileID: 373572317}
+  - {fileID: 2136526984}
   m_Father: {fileID: 816003170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2066936941
@@ -5624,6 +5690,68 @@ MonoBehaviour:
   _target: {fileID: 1673808685}
   _transitionTime: 3
   _delayToSleep: 3
+--- !u!1 &2136526983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136526984}
+  - component: {fileID: 2136526985}
+  m_Layer: 0
+  m_Name: Human Fx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136526984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136526983}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2043729036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136526985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136526983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84637087b68a44d34b60eae74c027a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handle: {fileID: 816003169}
+  _toggleIndex: 8
+  _event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1107918126}
+        m_TargetAssemblyTypeName: Rcam4.RcamBackground, Assembly-CSharp
+        m_MethodName: set_EffectOpacity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _transitionTime: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
