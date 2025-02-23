@@ -2054,11 +2054,11 @@ VFXRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 646666145}
   m_Enabled: 0
-  m_CastShadows: 0
+  m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
-  m_MotionVectors: 0
+  m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
@@ -5049,8 +5049,8 @@ MonoBehaviour:
   _handle: {fileID: 816003169}
   _toggleIndex: 1
   _target: {fileID: 350068583}
-  _transitionTime: 1
-  _delayToSleep: 4
+  _transitionTime: 0.3
+  _delayToSleep: 3
 --- !u!1 &1758089427
 GameObject:
   m_ObjectHideFlags: 0
@@ -5688,7 +5688,7 @@ MonoBehaviour:
   _handle: {fileID: 816003169}
   _toggleIndex: 0
   _target: {fileID: 1673808685}
-  _transitionTime: 3
+  _transitionTime: 0.3
   _delayToSleep: 3
 --- !u!1 &2136526983
 GameObject:
