@@ -5,7 +5,7 @@
         <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">
                 <engine:Label text="Particle VFX" class="control-section-label" />
-                <VJUITK.VJKnob name="knob-0" label="Sparkles" high-value="1" value="0.2" />
+                <VJUITK.VJKnob name="knob-0" label="Sparkles" high-value="1" />
                 <VJUITK.VJKnob name="knob-1" label="Flame" high-value="1" />
                 <VJUITK.VJToggle name="toggle-0" label="Balls" />
                 <VJUITK.VJToggle name="toggle-1" label="Bubbles" />
