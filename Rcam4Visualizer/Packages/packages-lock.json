@@ -176,13 +176,12 @@
       "url": "https://registry.npmjs.com"
     },
     "jp.keijiro.klak.ndi": {
-      "version": "2.1.4",
+      "version": "file:../../../KlakNDI/jp.keijiro.klak.ndi",
       "depth": 0,
-      "source": "registry",
+      "source": "local",
       "dependencies": {
         "com.unity.modules.screencapture": "1.0.0"
-      },
-      "url": "https://registry.npmjs.com"
+      }
     },
     "jp.keijiro.klutter-tools": {
       "version": "2.0.0",

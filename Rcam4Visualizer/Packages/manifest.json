@@ -5,7 +5,7 @@
     "jp.keijiro.kino.feedback.universal": "1.0.1",
     "jp.keijiro.klak.math": "2.1.0",
     "jp.keijiro.klak.motion": "1.1.0",
-    "jp.keijiro.klak.ndi": "2.1.4",
+    "jp.keijiro.klak.ndi": "file:../../../KlakNDI/jp.keijiro.klak.ndi",
     "jp.keijiro.klutter-tools": "2.0.0",
     "jp.keijiro.metamesh": "1.2.0",
     "jp.keijiro.metawire": "2.1.1",
