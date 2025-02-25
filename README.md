@@ -1,5 +1,7 @@
 # Rcam4
 
+![photo](https://github.com/user-attachments/assets/b9ba2693-8f63-4944-acb6-72e7f26df366)
+
 **Rcam4** is a real-time VFX project that utilizes the iPhone LiDAR sensor and Unity VFX Graph.
 
 Rcam4 is composed of two subprojects: **Rcam4Controller** and **Rcam4Visualizer**. The Controller is an iPhone app that captures the scene using the iPhone's camera (color and depth) and transmits it to the Visualizer, which runs on a host machine (PC or Mac). The Visualizer renders the scene with several visual effects.
