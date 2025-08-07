@@ -30,9 +30,9 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.1
+    m_Value: 23.95
   tintColor:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   bloomMip:
     m_OverrideState: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
     m_Value: 1.5
   streaksIntensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 21.37
   streaksLength:
     m_OverrideState: 1
     m_Value: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.84
   intensity:
     m_OverrideState: 1
     m_Value: 2

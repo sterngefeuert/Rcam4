@@ -2614,8 +2614,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots:
-  - {fileID: 8926484042661617030}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661616909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3892,7 +3891,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":0.004142855294048786,"y":0.049714282155036929,"z":0.058000002056360248}'
+      m_SerializableObject: '{"x":0.15389305353164674,"y":0.15389305353164674,"z":0.15389305353164674}'
     m_Space: -1
   m_Property:
     name: _Color
@@ -4931,7 +4930,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
+      m_SerializableObject: -1
     m_Space: -1
   m_Property:
     name: 
@@ -5481,8 +5480,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots:
-  - {fileID: 8926484042661616908}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661617031
 MonoBehaviour:
   m_ObjectHideFlags: 0

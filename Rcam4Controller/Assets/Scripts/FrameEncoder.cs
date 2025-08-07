@@ -98,6 +98,9 @@ public sealed class FrameEncoder : MonoBehaviour
 
     void Start()
     {
+        // Prevent device from going to sleep during AR capture
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
         // Component reference
         _camera = _cameraManager.GetComponent<Camera>();
 

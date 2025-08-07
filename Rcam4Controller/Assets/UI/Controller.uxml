@@ -21,7 +21,7 @@
         <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">
                 <engine:Label text="Environment VFX" class="control-section-label" />
-                <VJUITK.VJKnob name="knob-3" label="Shards" high-value="1" value="0.5" />
+                <VJUITK.VJKnob name="knob-3" label="Shards" high-value="1" value="0" />
                 <VJUITK.VJKnob name="knob-4" label="Petals" high-value="1" />
                 <VJUITK.VJKnob name="knob-5" label="Speed" high-value="1" />
             </engine:VisualElement>
@@ -30,19 +30,19 @@
                 <VJUITK.VJKnob name="knob-6" label="Opacity" high-value="1" />
                 <VJUITK.VJKnob name="knob-7" label="Scale" high-value="1" />
                 <VJUITK.VJKnob name="knob-8" label="Translate" high-value="1" />
-                <VJUITK.VJKnob name="knob-9" label="Hue Shift" high-value="1" value="0.5" />
+                <VJUITK.VJKnob name="knob-9" label="Hue Shift" high-value="1" value="0" />
             </engine:VisualElement>
             <engine:VisualElement name="section" class="control-section">
                 <engine:Label text="Camera" class="control-section-label" />
-                <VJUITK.VJToggle name="toggle-5" label="3rd Pers" />
+                <VJUITK.VJToggle name="toggle-5" label="3rd Pers" value="true" />
                 <VJUITK.VJKnob name="knob-10" label="Distance" high-value="1" value="0.5" />
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement name="row" style="flex-grow: 1; flex-direction: row;">
             <engine:VisualElement name="section" class="control-section">
                 <engine:Label text="Segments" class="control-section-label" />
-                <VJUITK.VJToggle name="toggle-6" label="Human" value="true" />
-                <VJUITK.VJToggle name="toggle-7" label="BG" value="true" />
+                <VJUITK.VJToggle name="toggle-6" label="Human" value="false" />
+                <VJUITK.VJToggle name="toggle-7" label="BG" value="false" />
                 <VJUITK.VJToggle name="toggle-8" label="Human Fx" />
             </engine:VisualElement>
             <engine:VisualElement name="section" class="control-section">
@@ -53,7 +53,7 @@
             </engine:VisualElement>
             <engine:VisualElement name="section" class="control-section">
                 <engine:Label text="Projector" class="control-section-label" />
-                <VJUITK.VJKnob name="knob-12" label="2nd Plane" high-value="1" value="0.5" />
+                <VJUITK.VJKnob name="knob-12" label="2nd Plane" high-value="1" value="0" />
                 <VJUITK.VJKnob name="knob-13" label="Fade Out" high-value="1" />
             </engine:VisualElement>
         </engine:VisualElement>
